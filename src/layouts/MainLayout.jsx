@@ -7,7 +7,7 @@ const MainLayout = () => {
     return (
         <div className="font-poppins">
             <Toaster position="top-right" reverseOrder={false} />
-            <header className="sticky top-0  bg-[#0F766E] shadow-sm z-10">
+            <header className="sticky top-0  bg-brandPrimary shadow-sm z-10">
                 {/* Navbar */}
                 <Navbar />
             </header>
