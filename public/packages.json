@@ -1,107 +1,107 @@
 [
-  {
-    "id": "1",
-    "photo": "https://i.ibb.co/xMRyhkq/dhaka1.jpg",
-    "tour_type": "Historical",
-    "trip_title": "Explore Ancient Dhaka",
-    "price": 300,
-    "gallery": ["https://i.ibb.co/xMRyhkq/dhaka1.jpg", "https://i.ibb.co/R0xBXTS/dhaka2.jpg", "https://i.ibb.co/CBryq3H/dhaka3.jpg", "https://i.ibb.co/qY1k7qy/dhaka4.jpg"],
-    "description": "A comprehensive tour of the historical sites in Dhaka. Experience the rich culture and heritage as you explore Lalbagh Fort, Ahsan Manzil, and the bustling streets of Old Dhaka. Enjoy local delicacies and immerse yourself in the vibrant atmosphere of Bangladesh's capital city.",
-    "tour_plan": [
-      {
-        "day": "Day 1",
-        "title": "Arrival and Welcome",
-        "description": "Arrive in Dhaka and enjoy a welcome dinner at a local restaurant."
-      },
-      {
-        "day": "Day 2",
-        "title": "City Tour",
-        "description": "Visit Lalbagh Fort, Ahsan Manzil, and Dhaka University."
-      }
-    ]
-  },
-  {
-    "id": "2",
-    "photo": "https://i.ibb.co/jGQRd4B/sundarban1.jpg",
-    "tour_type": "Nature",
-    "trip_title": "Sundarbans Mangrove Forest",
-    "price": 500,
-    "gallery": ["https://i.ibb.co/jGQRd4B/sundarban1.jpg", "https://i.ibb.co/Q9K4DmB/sundarban2.jpg", "https://i.ibb.co/j4J9tjs/sundarban3.jpg", "https://i.ibb.co/ZTZ16Zb/sundarban4.jpg"],
-    "description": "Explore the largest mangrove forest in the world, home to the majestic Royal Bengal Tiger and unique wildlife. Cruise through the serene waterways, witness the diverse flora and fauna, and enjoy a tranquil escape into nature's beauty. Perfect for wildlife enthusiasts and nature lovers.",
-    "tour_plan": [
-      {
-        "day": "Day 1",
-        "title": "Journey to Sundarbans",
-        "description": "Travel from Dhaka to Khulna and board the Sundarbans river cruise."
-      },
-      {
-        "day": "Day 2",
-        "title": "Wildlife Safari",
-        "description": "Enjoy a wildlife safari to spot the majestic Bengal tiger."
-      }
-    ]
-  },
-  {
-    "id": "3",
-    "photo": "https://i.ibb.co/fkBb8bN/Cox-s-Bazar1.jpg",
-    "tour_type": "Beach",
-    "trip_title": "Cox's Bazar Seaside Retreat",
-    "price": 400,
-    "gallery": ["https://i.ibb.co/fkBb8bN/Cox-s-Bazar1.jpg", "https://i.ibb.co/ZVGVXz1/Cox-s-Bazar3.jpg", "https://i.ibb.co/j61v45H/Cox-s-Bazar4.jpg"],
-    "description": "Experience a relaxing retreat to the world's longest natural sea beach. Bask in the sun, enjoy various water activities, and unwind with scenic beach views. Discover nearby attractions, including Himchari and Inani Beach, for a truly memorable seaside vacation.",
-    "tour_plan": [
-      {
-        "day": "Day 1",
-        "title": "Beach Day",
-        "description": "Enjoy a relaxing day at the beach with various water activities."
-      },
-      {
-        "day": "Day 2",
-        "title": "Sightseeing",
-        "description": "Visit the nearby attractions including Himchari and Inani Beach."
-      }
-    ]
-  },
-  {
-    "id": "4",
-    "photo": "https://i.ibb.co/dbjF4q8/Sylhet1.jpg",
-    "tour_type": "Cultural",
-    "trip_title": "Sylhet Tea Gardens & Sufi Shrines",
-    "price": 350,
-    "gallery": ["https://i.ibb.co/dbjF4q8/Sylhet1.jpg", "https://i.ibb.co/QQCJvRZ/Sylhet2.jpg", "https://i.ibb.co/X39q5mT/Sylhet3.jpg", "https://i.ibb.co/sVQnfqJ/Sylhet4.jpg"],
-    "description": "Explore the serene tea gardens and spiritual Sufi shrines of Sylhet. Learn about tea processing, visit lush plantations, and experience the tranquility of the region. Immerse yourself in the local culture and enjoy the hospitality of the Sylheti people.",
-    "tour_plan": [
-      {
-        "day": "Day 1",
-        "title": "Tea Gardens Tour",
-        "description": "Visit the lush tea gardens and learn about tea processing."
-      },
-      {
-        "day": "Day 2",
-        "title": "Sufi Shrines Visit",
-        "description": "Explore the famous Sufi shrines and enjoy local cuisine."
-      }
-    ]
-  },
-  {
-    "id": "5",
-    "photo": "https://i.ibb.co/gdKVWm5/Chittagong1.jpg",
-    "tour_type": "Wildlife",
-    "trip_title": "Chittagong Hill Tracts Adventure",
-    "price": 600,
-    "gallery": ["https://i.ibb.co/gdKVWm5/Chittagong1.jpg", "https://i.ibb.co/JnZc67r/Chittagong2.jpg", "https://i.ibb.co/dgvjqFd/Chittagong3.jpg", "https://i.ibb.co/W0vVvS6/Chittagong4.jpg"],
-    "description": "Embark on an adventurous tour through the Chittagong Hill Tracts. Trek through scenic hills, visit tribal villages, and experience the unique culture and traditions of the indigenous communities. An exciting journey for adventure seekers and cultural enthusiasts.",
-    "tour_plan": [
-      {
-        "day": "Day 1",
-        "title": "Trekking",
-        "description": "Embark on a trekking adventure through the hills."
-      },
-      {
-        "day": "Day 2",
-        "title": "Cultural Experience",
-        "description": "Visit local tribal villages and experience their culture."
-      }
-    ]
-  }
+    {
+        "id": "1",
+        "photo": "https://i.ibb.co/xMRyhkq/dhaka1.jpg",
+        "tour_type": "Historical",
+        "trip_title": "Explore Ancient Dhaka",
+        "price": 300,
+        "gallery": ["https://i.ibb.co/xMRyhkq/dhaka1.jpg", "https://i.ibb.co/R0xBXTS/dhaka2.jpg", "https://i.ibb.co/CBryq3H/dhaka3.jpg", "https://i.ibb.co/qY1k7qy/dhaka4.jpg"],
+        "description": "A comprehensive tour of the historical sites in Dhaka. Experience the rich culture and heritage as you explore Lalbagh Fort, Ahsan Manzil, and the bustling streets of Old Dhaka. Enjoy local delicacies and immerse yourself in the vibrant atmosphere of Bangladesh's capital city.",
+        "tour_plan": [
+            {
+                "day": "Day 1",
+                "title": "Arrival and Welcome",
+                "description": "Arrive in Dhaka and enjoy a welcome dinner at a local restaurant."
+            },
+            {
+                "day": "Day 2",
+                "title": "City Tour",
+                "description": "Visit Lalbagh Fort, Ahsan Manzil, and Dhaka University."
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "photo": "https://i.ibb.co/jGQRd4B/sundarban1.jpg",
+        "tour_type": "Nature",
+        "trip_title": "Sundarbans Mangrove Forest",
+        "price": 500,
+        "gallery": ["https://i.ibb.co/jGQRd4B/sundarban1.jpg", "https://i.ibb.co/Q9K4DmB/sundarban2.jpg", "https://i.ibb.co/j4J9tjs/sundarban3.jpg", "https://i.ibb.co/ZTZ16Zb/sundarban4.jpg"],
+        "description": "Explore the largest mangrove forest in the world, home to the majestic Royal Bengal Tiger and unique wildlife. Cruise through the serene waterways, witness the diverse flora and fauna, and enjoy a tranquil escape into nature's beauty. Perfect for wildlife enthusiasts and nature lovers.",
+        "tour_plan": [
+            {
+                "day": "Day 1",
+                "title": "Journey to Sundarbans",
+                "description": "Travel from Dhaka to Khulna and board the Sundarbans river cruise."
+            },
+            {
+                "day": "Day 2",
+                "title": "Wildlife Safari",
+                "description": "Enjoy a wildlife safari to spot the majestic Bengal tiger."
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "photo": "https://i.ibb.co/fkBb8bN/Cox-s-Bazar1.jpg",
+        "tour_type": "Beach",
+        "trip_title": "Cox's Bazar Seaside Retreat",
+        "price": 400,
+        "gallery": ["https://i.ibb.co/fkBb8bN/Cox-s-Bazar1.jpg", "https://i.ibb.co/ZVGVXz1/Cox-s-Bazar3.jpg", "https://i.ibb.co/j61v45H/Cox-s-Bazar4.jpg"],
+        "description": "Experience a relaxing retreat to the world's longest natural sea beach. Bask in the sun, enjoy various water activities, and unwind with scenic beach views. Discover nearby attractions, including Himchari and Inani Beach, for a truly memorable seaside vacation.",
+        "tour_plan": [
+            {
+                "day": "Day 1",
+                "title": "Beach Day",
+                "description": "Enjoy a relaxing day at the beach with various water activities."
+            },
+            {
+                "day": "Day 2",
+                "title": "Sightseeing",
+                "description": "Visit the nearby attractions including Himchari and Inani Beach."
+            }
+        ]
+    },
+    {
+        "id": "4",
+        "photo": "https://i.ibb.co/dbjF4q8/Sylhet1.jpg",
+        "tour_type": "Cultural",
+        "trip_title": "Sylhet Tea Gardens & Sufi Shrines",
+        "price": 350,
+        "gallery": ["https://i.ibb.co/dbjF4q8/Sylhet1.jpg", "https://i.ibb.co/QQCJvRZ/Sylhet2.jpg", "https://i.ibb.co/X39q5mT/Sylhet3.jpg", "https://i.ibb.co/sVQnfqJ/Sylhet4.jpg"],
+        "description": "Explore the serene tea gardens and spiritual Sufi shrines of Sylhet. Learn about tea processing, visit lush plantations, and experience the tranquility of the region. Immerse yourself in the local culture and enjoy the hospitality of the Sylheti people.",
+        "tour_plan": [
+            {
+                "day": "Day 1",
+                "title": "Tea Gardens Tour",
+                "description": "Visit the lush tea gardens and learn about tea processing."
+            },
+            {
+                "day": "Day 2",
+                "title": "Sufi Shrines Visit",
+                "description": "Explore the famous Sufi shrines and enjoy local cuisine."
+            }
+        ]
+    },
+    {
+        "id": "5",
+        "photo": "https://i.ibb.co/gdKVWm5/Chittagong1.jpg",
+        "tour_type": "Wildlife",
+        "trip_title": "Chittagong Hill Tracts Adventure",
+        "price": 600,
+        "gallery": ["https://i.ibb.co/gdKVWm5/Chittagong1.jpg", "https://i.ibb.co/JnZc67r/Chittagong2.jpg", "https://i.ibb.co/dgvjqFd/Chittagong3.jpg", "https://i.ibb.co/W0vVvS6/Chittagong4.jpg"],
+        "description": "Embark on an adventurous tour through the Chittagong Hill Tracts. Trek through scenic hills, visit tribal villages, and experience the unique culture and traditions of the indigenous communities. An exciting journey for adventure seekers and cultural enthusiasts.",
+        "tour_plan": [
+            {
+                "day": "Day 1",
+                "title": "Trekking",
+                "description": "Embark on a trekking adventure through the hills."
+            },
+            {
+                "day": "Day 2",
+                "title": "Cultural Experience",
+                "description": "Visit local tribal villages and experience their culture."
+            }
+        ]
+    }
 ]
