@@ -8,11 +8,16 @@ import Login from '../pages/Login';
 import Register from '../pages/Register';
 import PrivetRoute from './PrivetRoute';
 import MyProfile from '../pages/MyProfile';
-
 import ProfileUpdate from '../pages/ProfileUpdate';
 import Community from '../pages/Community';
 import AboutUs from '../pages/AboutUs';
 import Trips from '../pages/Trips';
+import DashBoard from '../layouts/DashBoard';
+import ManageProfile from '../pages/DashBoard/ManageProfile';
+import MyBookings from '../pages/DashBoard/MyBookings';
+import ManageStories from '../pages/DashBoard/ManageStories';
+import AddStories from '../pages/DashBoard/AddStories';
+import JoinAsTourGuide from '../pages/DashBoard/JoinAsTourGuide';
 
 const routes = createBrowserRouter([
     {
@@ -70,6 +75,32 @@ const routes = createBrowserRouter([
                     }
                 ]
             }
+        ]
+    },
+    {
+        path: 'dashboard',
+        element: <DashBoard />,
+        children: [
+            {
+                path: 'manageProfile',
+                element: <ManageProfile />
+            },
+            {
+                path: 'myBookings',
+                element: <MyBookings />
+            },
+            {
+                path: 'manageStories',
+                element: <ManageStories />
+            },
+            {
+                path: 'addStories',
+                element: <AddStories />
+            },
+            {
+                path: 'joinAsTourGuide',
+                element: <JoinAsTourGuide />
+            },
         ]
     }
 ]);
