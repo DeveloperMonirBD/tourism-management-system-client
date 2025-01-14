@@ -4,6 +4,7 @@ import { toast, Toaster } from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import google from '../../src/assets/google.png';
+import { imageUpload } from '../api/utils';
 import { AuthContext } from '../provider/AuthProvider';
 
 const Register = () => {
@@ -18,19 +19,22 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
         // get form data
-        const form = new FormData(e.target);
-        const name = form.get('name');
+        const form = e.target;
+        const name = form.name.value;
 
         if (name.length < 5) {
             setError({ ...error, name: 'Must be more than 5 character length' });
             return;
         }
+        const email = form.email.value;
+        const image = form.image.files[0];
 
-        const email = form.get('email');
-        const photo = form.get('photo');
+        // send image data to imgbb
+        const image_url = await imageUpload(image);
+
         const terms = e.target.terms.checked;
 
         // reset error and status
@@ -68,7 +72,7 @@ const Register = () => {
                 const user = result.user;
                 setSuccess(true);
                 setUser(user);
-                updateUserProfile({ displayName: name, photoURL: photo })
+                updateUserProfile({ displayName: name, photoURL: image_url })
                     .then(() => {
                         navigate(location?.state ? location.state : '/');
                         toast.success('Registration successful!');
@@ -119,9 +123,9 @@ const Register = () => {
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-base">Photo URL</span>
+                            <span className="label-text text-base">Select image</span>
                         </label>
-                        <input type="text" name="photo" placeholder="Enter your photo URL" className="input input-bordered bg-[#F3F3F3]" required />
+                        <input type="file" name="image" id="image" accept="image/*" required />
                     </div>
 
                     <div className="form-control">
