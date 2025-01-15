@@ -1,13 +1,14 @@
-import { useState, useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { AuthContext } from '../../../provider/AuthProvider';
+import useAxiosPublic from '../../../hook/useAxiosPublic';
 import useGuides from '../../../hook/useGuides';
+import { AuthContext } from '../../../provider/AuthProvider';
 
 const BookingForm = () => {
+    const axiosPublic = useAxiosPublic();
     const { user } = useContext(AuthContext);
     const [guides] = useGuides();
 
@@ -39,7 +40,7 @@ const BookingForm = () => {
                 tourGuideName: guide
             };
             try {
-                await axios.post('http://localhost:5000/api/bookings', bookingData);
+                await axiosPublic.post('/api/bookings', bookingData);
                 alert('Booking information saved with pending status');
                 setModalOpen(true);
             } catch (error) {

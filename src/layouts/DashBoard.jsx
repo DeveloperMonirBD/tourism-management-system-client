@@ -4,7 +4,7 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const DashBoard = () => {
     return (
-        <div className=" container mx-auto flex gap-4">
+        <div className=" container mx-auto flex gap-12">
             {/* dashBoard side bar  */}
             <div className="w-72 min-h-screen bg-brandPrimary p-4">
                 <div className="text-center mt-4">

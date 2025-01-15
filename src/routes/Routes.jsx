@@ -16,11 +16,12 @@ import DashBoard from '../layouts/DashBoard';
 import ManageProfile from '../pages/DashBoard/ManageProfile';
 import MyBookings from '../pages/DashBoard/MyBookings';
 import ManageStories from '../pages/DashBoard/ManageStories';
-import AddStories from '../pages/DashBoard/AddStories';
+
 import JoinAsTourGuide from '../pages/DashBoard/JoinAsTourGuide';
 import PackageDetails from '../pages/Tablist/packages/packageDetails';
 import GuideDetailsProfile from '../pages/Tablist/guides/GuideDetailsProfile';
 import BookingForm from '../pages/Tablist/packages/BookingForm';
+import AddStories from '../pages/DashBoard/addStories/AddStories';
 
 
 
