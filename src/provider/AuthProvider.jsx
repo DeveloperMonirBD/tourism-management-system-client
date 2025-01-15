@@ -12,19 +12,17 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    const axiosPublic = useAxiosPublic()
-
+    const axiosPublic = useAxiosPublic();
 
     const createNewUser = (email, password) => {
         setLoading(true);
-        return createUserWithEmailAndPassword(auth, email, password)
+        return createUserWithEmailAndPassword(auth, email, password);
     };
-    
 
     const userLogin = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
-    };    
+    };
 
     const logOut = () => {
         setLoading(true);
@@ -43,7 +41,7 @@ const AuthProvider = ({ children }) => {
         logOut,
         loading,
         updateUserProfile,
-        auth,
+        auth
     };
 
     useEffect(() => {
@@ -51,13 +49,12 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser);
             if (currentUser) {
                 //get token and store client
-                const userInfo = {email:currentUser.email}
-                axiosPublic.post('/jwt', userInfo)
-                    .then(res => {
-                        if (res.data.token) {
-                        localStorage.setItem('access-token', res.data.token)
+                const userInfo = { email: currentUser.email };
+                axiosPublic.post('/jwt', userInfo).then(res => {
+                    if (res.data.token) {
+                        localStorage.setItem('access-token', res.data.token);
                     }
-                })
+                });
             } else {
                 // do something
                 localStorage.removeItem('access-token');

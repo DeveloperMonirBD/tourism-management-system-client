@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
 import useAxiosPublic from '../../../../hook/useAxiosPublic';
 import useGuides from '../../../../hook/useGuides';
+import BookingForm from './BookingForm';
 
 
 
@@ -76,6 +77,9 @@ const PackageDetails = () => {
 
 
             {/* booking form */}
+            <div>
+                <BookingForm />
+            </div>
 
         </div>
     );
