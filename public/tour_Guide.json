@@ -1,0 +1,62 @@
+[
+    {
+        "name": "John Doe",
+        "image": "https://i.ibb.co.com/chYN1Hz/05-12-21-happy-people.jpg",
+        "cover": "https://i.ibb.co/xMRyhkq/dhaka1.jpg",
+        "bio": "John has been a tour guide for over 10 years, specializing in historical tours of Dhaka, the capital city of Bangladesh. He is an expert on the Mughal architecture in Lalbagh Fort and Ahsan Manzil. John also offers insightful walks through the vibrant streets of Old Dhaka, where he shares fascinating stories about the city's rich history.",
+        "languages": ["English", "Bengali"],
+        "experience": "10 years",
+        "rating": 4.7,
+        "description": "Dhaka, the bustling capital of Bangladesh, is a city of rich historical and cultural significance. One of the most fascinating parts of Dhaka’s history is its Mughal architecture, which is still visible in many of its structures today. Lalbagh Fort, one of the most iconic Mughal-era landmarks in Dhaka, is a prime example of this architectural style. Built in the late 1600s by the Mughal prince Muhammad Azam, the fort features intricate designs, beautiful gardens, and stunning buildings such as the mosque and the tomb of Bibi Pari, which is thought to be the tomb of the prince’s wife. Another iconic site is Ahsan Manzil, a former palace turned museum that was the residence of Dhaka’s wealthiest families during the colonial period. Visitors can explore the grandeur of this building, which is decorated with European-style furnishings, while learning about the opulent lifestyle of its former residents. A walk through Old Dhaka is another must-do experience. The streets are lined with historic buildings, colorful markets, and lively scenes that showcase the cultural diversity of the city. This vibrant area offers glimpses into the past with its centuries-old mosques, temples, and colonial-era structures. With John as a guide, tourists can enjoy a thorough exploration of the city’s history, culture, and architecture, all while learning the stories and historical events that shaped Dhaka into the city it is today."
+    },
+    {
+        "name": "Alice Smith",
+        "image": "https://i.ibb.co.com/c8XqRB9/happy-person.jpg",
+        "cover": "https://i.ibb.co/dbjF4q8/Sylhet1.jpg",
+        "bio": "Alice offers deep knowledge about the cultural and natural wonders of Sylhet, including the Srimangal tea gardens and the Ratargul Swamp Forest, one of the few swamp forests in Bangladesh.",
+        "languages": ["English", "Bengali"],
+        "experience": "8 years",
+        "rating": 4.9,
+        "description": "Sylhet, located in the northeastern part of Bangladesh, is known for its breathtaking natural beauty and unique cultural heritage. One of the most famous attractions in Sylhet is the Srimangal tea gardens, often referred to as the ‘Tea Capital of Bangladesh.’ The region is home to rolling hills blanketed by lush tea plantations, where visitors can witness the tea-picking process and enjoy the panoramic views of the green landscape. Srimangal’s climate and fertile soil make it ideal for tea cultivation, and the plantations themselves offer an immersive experience where tourists can engage with local workers, learn about the tea-making process, and enjoy freshly brewed tea while overlooking the plantations. Another gem of Sylhet is the Ratargul Swamp Forest, a rare freshwater swamp forest that has become an eco-tourism hotspot. The forest is located near the village of Ratargul and is known for its calm waters and rich biodiversity. Tourists can take boat rides through the forest, observing the submerged trees and spotting various species of birds and wildlife. The forest is also home to several endangered species, making it a haven for nature enthusiasts and bird watchers. Alongside these natural wonders, Sylhet is culturally rich with a strong Sufi influence, and visitors can explore the shrines of revered Sufi saints, such as Hazrat Shah Jalal and Hazrat Shah Paran, both of which attract pilgrims from across the region. Alice’s tours provide an opportunity to experience both the natural beauty and the cultural depth of Sylhet, making it an unforgettable destination."
+    },
+    {
+        "name": "James Lee",
+        "image": "https://i.ibb.co.com/SxghNXJ/team-3.jpg",
+        "cover": "https://i.ibb.co/fkBb8bN/Cox-s-Bazar1.jpg",
+        "bio": "James is passionate about exploring the coastal beauty of Cox's Bazar, the longest unbroken sea beach in the world, and leading tours through nearby fishing villages and St. Martin's Island.",
+        "languages": ["English", "Bengali"],
+        "experience": "12 years",
+        "rating": 4.8,
+        "description": "Cox’s Bazar is renowned for its stunning, 120-kilometer-long unbroken sea beach, making it the longest natural sea beach in the world. The beach is lined with golden sand, where visitors can enjoy the scenic beauty of the Bay of Bengal and take part in a variety of water sports, including swimming, surfing, and beach volleyball. The area is also perfect for relaxing and enjoying the gentle waves and breezes of the ocean. James’s tours often include visits to the nearby fishing villages, where tourists can witness the daily lives of local fishermen, learn about traditional boat-making techniques, and sample freshly caught seafood. A highlight of the trip is the excursion to St. Martin’s Island, a small coral island located about 9 kilometers from the mainland. Known for its crystal-clear waters, vibrant coral reefs, and abundant marine life, the island offers a peaceful retreat for those looking to escape the hustle and bustle of the mainland. James also guides tourists through the local markets of Cox’s Bazar, where visitors can shop for souvenirs such as handmade crafts, traditional clothing, and local products. Whether you’re looking for adventure on the beach, relaxation on the island, or cultural insights from the fishing communities, James’s tours provide an all-encompassing experience of Cox’s Bazar."
+    },
+    {
+        "name": "Sophia Brown",
+        "image": "https://i.ibb.co.com/TKPFv7S/team-2.jpg",
+        "cover": "https://i.ibb.co/jGQRd4B/sundarban1.jpg",
+        "bio": "Sophia specializes in tours of the Sundarbans, the largest mangrove forest in the world and home to the Bengal tiger. She provides unique wildlife experiences and eco-friendly tours.",
+        "languages": ["English", "Bengali"],
+        "experience": "5 years",
+        "rating": 4.6,
+        "description": "The Sundarbans is the world’s largest mangrove forest, spanning across the southwestern region of Bangladesh and part of India. This UNESCO World Heritage Site is a biodiversity hotspot and home to the elusive Bengal tiger, which can occasionally be spotted by keen-eyed tourists. Sophia’s tours offer an extraordinary opportunity to explore this unique ecosystem, where the vast network of tidal waterways, lush mangrove trees, and saltwater swamps create a picturesque and serene environment. Guests are taken on boat trips through the labyrinth of waterways, where they can observe a wide variety of wildlife, including crocodiles, spotted deer, wild boars, and an array of bird species. The Sundarbans is also an important area for the conservation of the Bengal tiger, and Sophia’s tours include educational segments on conservation efforts and the challenges faced by the region’s wildlife. For those seeking a deeper connection with nature, Sophia offers eco-tourism experiences that emphasize sustainability and environmental stewardship. A visit to the local villages on the outskirts of the Sundarbans provides further insight into how the communities living in and around the forest rely on its resources for their livelihoods while also working to protect it for future generations."
+    },
+    {
+        "name": "David Williams",
+        "image": "https://i.ibb.co.com/qsk9JR4/c2.jpg",
+        "cover": "https://i.ibb.co/j4J9tjs/sundarban3.jpg",
+        "bio": "David is an expert on Chittagong and the beautiful hill tracts region. He leads treks through Bandarban's mesmerizing landscapes, including Nafakhum Waterfall and Ruma National Park.",
+        "languages": ["English", "Bengali"],
+        "experience": "7 years",
+        "rating": 4.5,
+        "description": "Chittagong, located in the southeastern part of Bangladesh, is home to some of the most stunning natural landscapes in the country. The hill tracts region, including Bandarban, offers breathtaking views of rolling hills, dense forests, and serene rivers. One of the top attractions in Bandarban is Nafakhum Waterfall, one of the largest waterfalls in Bangladesh, where visitors can trek through dense jungle trails to reach the falls. The waterfall is surrounded by untouched natural beauty, making it a perfect spot for adventurers and nature lovers. Another highlight is Ruma National Park, which offers excellent trekking routes for those interested in exploring the diverse flora and fauna of the region. David’s tours take visitors on hikes through the park’s forested areas, where they can spot a variety of bird species and enjoy panoramic views of the surrounding hills. The region is also home to several indigenous communities, and David’s tours offer cultural insights into the traditions, lifestyle, and crafts of these groups. With David as a guide, visitors can enjoy an unforgettable trek through some of the most picturesque and pristine landscapes of Bangladesh, while learning about the rich cultural heritage of the region."
+    },
+    {
+        "name": "Emma Jones",
+        "image": "https://i.ibb.co.com/0ZZCyDT/team-1.jpg",
+        "cover": "https://i.ibb.co/X39q5mT/Sylhet3.jpg",
+        "bio": "Emma specializes in culinary tours of Bangladesh, focusing on traditional dishes from Dhaka, Chittagong, and Sylhet, offering a taste of the local culture through food.",
+        "languages": ["English", "Bengali"],
+        "experience": "9 years",
+        "rating": 4.9,
+        "description": "Bangladesh is a food lover’s paradise, and Emma’s culinary tours offer an immersive experience into the country’s rich gastronomic heritage. Dhaka, the capital, is known for its vibrant street food culture, and Emma’s tours take visitors through the bustling streets of Old Dhaka, where they can sample iconic dishes such as fuchka (pani puri), chotpoti (spicy chickpea salad), and mishti (sweets). In Chittagong, seafood lovers can indulge in fresh catches, including hilsa fish and mekhali bhorta (a spiced fish paste). Sylhet is known for its tea culture, and Emma takes tourists on visits to local tea estates, where they can taste different varieties of tea, and learn about the region’s rich tea-making tradition. Emma’s culinary tours are more than just food tastings—they are a journey through the country’s history, culture, and social customs as told through its food. Guests will also learn about the spices, cooking techniques, and local ingredients that form the foundation of Bangladeshi cuisine, making Emma’s tours a delicious and educational experience for all food enthusiasts."
+    }
+]

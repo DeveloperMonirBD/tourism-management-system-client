@@ -1,10 +1,10 @@
-import usePackage from '../../hook/usePackage';
+import useCart from '../../../../hook/useCart';
 
 const OurPackages = () => {
-    const [packages] = usePackage();
+    const [cart] = useCart()
     return (
         <div className="packages grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-            {packages.map(pkg => (
+            {cart.map(pkg => (
                 <div key={pkg.id} className="card card-compact bg-base-100 shadow-xl">
                     <figure className="h-[230px] lg:h-[280px]">
                         <img src={pkg.photo} alt={pkg.trip_title} className="w-full bg-cover" />

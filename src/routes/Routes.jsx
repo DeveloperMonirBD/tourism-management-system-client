@@ -18,7 +18,9 @@ import MyBookings from '../pages/DashBoard/MyBookings';
 import ManageStories from '../pages/DashBoard/ManageStories';
 import AddStories from '../pages/DashBoard/AddStories';
 import JoinAsTourGuide from '../pages/DashBoard/JoinAsTourGuide';
-import PackageDetails from '../pages/packageDetails';
+import PackageDetails from '../pages/DashBoard/Tablist/packages/packageDetails';
+import GuideDetailsProfile from '../pages/DashBoard/Tablist/guides/GuideDetailsProfile';
+
 
 const routes = createBrowserRouter([
     {
@@ -53,6 +55,10 @@ const routes = createBrowserRouter([
             {
                 path: '/package/:id',
                 element: <PackageDetails />
+            },
+            {
+                path: '/tourGuide/:id',
+                element: <GuideDetailsProfile />
             },
             {
                 path: '/myProfile',

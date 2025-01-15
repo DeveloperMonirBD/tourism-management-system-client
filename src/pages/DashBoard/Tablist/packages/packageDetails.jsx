@@ -1,13 +1,19 @@
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import useAxiosPublic from '../../../../hook/useAxiosPublic';
+import useGuides from '../../../../hook/useGuides';
 
-const fetchPackageById = async id => {
-    const response = await axios.get(`http://localhost:5000/api/packages/${id}`);
-    return response.data;
-};
+
 
 const PackageDetails = () => {
+    const axiosPublic = useAxiosPublic();
+    const [guides] = useGuides();
+    
+    const fetchPackageById = async id => {
+        const response = await axiosPublic.get(`/api/packages/${id}`);
+        return response.data;
+    };
+
     const { id } = useParams();
     const {
         data: pkg,
@@ -22,7 +28,7 @@ const PackageDetails = () => {
     if (error) return <div>Error: {error.message}</div>;
 
     return (
-        <div className="container mx-auto p-4 h-screen pt-20 lg:pt-32">
+        <div className="container mx-auto p-4 min-h-screen pt-20 lg:pt-32">
             <div className="flex flex-col lg:flex-row lg:gap-10">
                 <div className='lg:w-1/2"'>
                     {/* Image Gallery */}
@@ -34,8 +40,10 @@ const PackageDetails = () => {
                 </div>
                 <div className="lg:w-1/2">
                     {/* Title and Description */}
-                    <h1 className="text-3xl font-bold my-4">{pkg.trip_title}</h1>
+                    <h1 className="text-3xl font-bold my-4 mt-6">{pkg.trip_title}</h1>
                     <p className="text-lg mb-4">{pkg.description}</p>
+                    <p className="text-xl font-bold">{pkg.tour_type}</p>
+                    <p className="text-xl font-bold mt-2">${pkg.price}</p>
 
                     {/* Tour Plan */}
                     <section className="tour-plan my-4">
@@ -50,6 +58,25 @@ const PackageDetails = () => {
                     </section>
                 </div>
             </div>
+
+            {/* all tour guides  */}
+            <div>
+                <div>
+                    <h1 className='text-4xl font-bold text-center uppercase mt-20'>all tour guides</h1>
+                </div>
+                <div className="my-14 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 fri mx-auto">
+                    {guides.map(guide => (
+                        <div key={guide._id} className="" onClick={() => (window.location.href = `/tourGuide/${guide._id}`)}>
+                            <img src={guide.image} alt="" className="w-52 h-40 object-cover" />
+                            <p className="my-2 text-center font-bold">{guide.name}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+
+            {/* booking form */}
+
         </div>
     );
 };

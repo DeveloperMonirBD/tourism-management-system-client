@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import OurPackages from '../components/Tablist/OurPackages';
+import OurPackages from './OurPackages';
+import TourGuides from '../guides/TourGuides';
 const TourTravelGuide = () => {
-    const [tabIndex, setTabIndex] = useState(0)
-    
+    const [tabIndex, setTabIndex] = useState(0);
+
     return (
         <div className="my-20 container mx-auto">
             <div className="text-center">
@@ -18,7 +19,7 @@ const TourTravelGuide = () => {
                         <OurPackages />
                     </TabPanel>
                     <TabPanel>
-                        <h2>Any content 2</h2>
+                        <TourGuides />
                     </TabPanel>
                 </Tabs>
             </div>
