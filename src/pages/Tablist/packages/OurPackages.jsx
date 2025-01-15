@@ -1,4 +1,5 @@
-import useCart from '../../../../hook/useCart';
+import useCart from "../../../hook/useCart";
+
 
 const OurPackages = () => {
     const [cart] = useCart()

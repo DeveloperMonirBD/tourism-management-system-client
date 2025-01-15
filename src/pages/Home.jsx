@@ -1,6 +1,6 @@
 import Carousel from '../components/Carousel';
 import Overview from '../components/Overview';
-import TourTravelGuide from './DashBoard/Tablist/packages/TourTravelGuide';
+import TourTravelGuide from './Tablist/packages/TourTravelGuide';
 
 
 const Home = () => {

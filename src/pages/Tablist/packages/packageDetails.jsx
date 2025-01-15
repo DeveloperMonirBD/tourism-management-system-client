@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
-import useAxiosPublic from '../../../../hook/useAxiosPublic';
-import useGuides from '../../../../hook/useGuides';
 import BookingForm from './BookingForm';
+import useAxiosPublic from '../../../hook/useAxiosPublic';
+import useGuides from '../../../hook/useGuides';
 
 
 

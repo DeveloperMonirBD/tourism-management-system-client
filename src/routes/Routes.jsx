@@ -18,9 +18,10 @@ import MyBookings from '../pages/DashBoard/MyBookings';
 import ManageStories from '../pages/DashBoard/ManageStories';
 import AddStories from '../pages/DashBoard/AddStories';
 import JoinAsTourGuide from '../pages/DashBoard/JoinAsTourGuide';
-import PackageDetails from '../pages/DashBoard/Tablist/packages/packageDetails';
-import GuideDetailsProfile from '../pages/DashBoard/Tablist/guides/GuideDetailsProfile';
-import BookingForm from '../pages/DashBoard/Tablist/packages/BookingForm';
+import PackageDetails from '../pages/Tablist/packages/packageDetails';
+import GuideDetailsProfile from '../pages/Tablist/guides/GuideDetailsProfile';
+import BookingForm from '../pages/Tablist/packages/BookingForm';
+
 
 
 const routes = createBrowserRouter([

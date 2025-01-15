@@ -1,4 +1,5 @@
-import useGuides from "../../../../hook/useGuides";
+import useGuides from "../../../hook/useGuides";
+
 
 const TourGuides = () => {
     const [guides] = useGuides()

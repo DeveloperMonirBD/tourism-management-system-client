@@ -1,10 +1,11 @@
 import { useState, useContext, useEffect } from 'react';
-import { AuthContext } from '../../../../provider/AuthProvider';
-import useGuides from '../../../../hook/useGuides';
+
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { AuthContext } from '../../../provider/AuthProvider';
+import useGuides from '../../../hook/useGuides';
 
 const BookingForm = () => {
     const { user } = useContext(AuthContext);
