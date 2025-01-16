@@ -70,10 +70,10 @@ const TouristStory = () => {
                 ))}
             </div>
             <div className="mt-8 flex justify-center gap-8">
-                <button className="btn btn-base" onClick={() => navigate('/dashboard/addStories')}>
+                <button className="btn btn-base text-lg" onClick={() => navigate('/dashboard/addStories')}>
                     Add Stories
                 </button>
-                <button className="btn btn-base" onClick={() => navigate('/dashboard/allStories')}>
+                <button className="btn btn-base text-lg" onClick={() => navigate('/dashboard/allStories')}>
                     All Stories
                 </button>
             </div>
