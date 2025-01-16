@@ -33,6 +33,7 @@ const AboutUs = () => {
                         <FaGithub /> <span className="text-blue-500 underline">Github</span>
                     </div>
                 </Link>
+                
                 <Link to="https://www.linkedin.com/in/monirdeveloper" target="_blank">
                     <div className="flex items-center gap-2">
                         <FaLinkedin /> <span className="text-blue-500 underline">Linkedin</span>
