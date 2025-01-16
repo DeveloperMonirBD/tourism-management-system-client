@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useAxiosPublic from '../../../hook/useAxiosPublic';
 import { AuthContext } from '../../../provider/AuthProvider';
+import axios from 'axios';
 
 const AddStories = () => {
     const axiosPublic = useAxiosPublic();
@@ -9,11 +10,20 @@ const AddStories = () => {
 
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
-    // const [images, setImages] = useState([]);
     const navigate = useNavigate();
 
     const handleSubmit = async e => {
         e.preventDefault();
+
+        // image file upload in the imgbb start
+        const image = e.target.image.files[0];
+        const formData = new FormData();
+        formData.append('image', image);
+        // send image data to imgbb
+        const { data } = await axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`, formData);
+        
+        const image_url = data.data.display_url;
+
         if (!user) {
             navigate('/auth/login');
         } else {
@@ -23,6 +33,7 @@ const AddStories = () => {
                 touristImageURL: user?.photoURL || '',
                 title,
                 text,
+                image_url
             };
             try {
                 await axiosPublic.post('/api/stories', storiesData);
@@ -56,7 +67,7 @@ const AddStories = () => {
                     <label className="label">
                         <span className="label-text">Images</span>
                     </label>
-                    <input type="file" multiple  className="file-input file-input-bordered bg-bra" />
+                    <input required type="file" name='image' accept='image/*' multiple  className="file-input file-input-bordered bg-bra" />
                 </div>
 
                 <div className="form-control mt-4">
