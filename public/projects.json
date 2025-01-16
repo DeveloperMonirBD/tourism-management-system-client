@@ -1,0 +1,31 @@
+[
+    {
+        "name": "Visa Navigator",
+        "description": "An intuitive web application to guide users through the visa application process based on their country of residence and destination.",
+        "technologies": ["HTML", "CSS", "JavaScript", "React.js", "Node.js", "Express.js", "MongoDB", "Firebase"],
+        "links": {
+            "live": "live-link",
+            "clientSide": "client-side",
+            "serverSide": "server-side"
+        }
+    },
+    {
+        "name": "Library Management System",
+        "description": "A well-renowned school requires the development of a Library Management System, accessible via a website, allowing addition and categorization of books.",
+        "technologies": ["HTML", "CSS", "JavaScript", "React.js", "Node.js", "Express.js", "MongoDB", "Firebase"],
+        "links": {
+            "live": "live-link",
+            "clientSide": "client-side",
+            "serverSide": "server-side"
+        }
+    },
+    {
+        "name": "Lingo Bingo",
+        "description": "An app designed to enhance language learning by providing pronunciation of vocabulary words.",
+        "technologies": ["HTML", "CSS", "JavaScript", "React.js", "Node.js", "Firebase"],
+        "links": {
+            "live": "live-link",
+            "repository": "repository-link"
+        }
+    }
+]
