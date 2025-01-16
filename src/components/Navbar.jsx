@@ -10,17 +10,17 @@ const Navbar = () => {
     const links = (
         <>
             <li className="hover:text-brandPrimary ">
-                <NavLink to="/" className="dark:text-white">
+                <NavLink to="/" className="">
                     Home
                 </NavLink>
             </li>
-            <li className="hover:text-brandLight">
+            <li className="hover:text-neutral">
                 <NavLink to="/community">Community</NavLink>
             </li>
-            <li className="hover:text-brandLight">
+            <li className="hover:text-neutral">
                 <NavLink to="/about-us">About Us</NavLink>
             </li>
-            <li className="hover:text-brandLight">
+            <li className="hover:text-neutral">
                 <NavLink to="/trips">Trips</NavLink>
             </li>
         </>
@@ -31,12 +31,12 @@ const Navbar = () => {
             <div className="navbar-start">
                 {/* mobile dropdown  */}
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost text-brandLight lg:hidden">
+                    <div tabIndex={0} role="button" className="btn btn-ghost text-neutral lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                         </svg>
                     </div>
-                    <ul tabIndex={0} className="menu menu-md dropdown-content rounded-box z-[1] mt-3 w-52 p-3 shadow bg-[#0F766E] text-brandLight font-semibold gap-2 ">
+                    <ul tabIndex={0} className="menu menu-md dropdown-content rounded-box z-[1] mt-3 w-52 p-3 shadow bg-gray-100 text-neutral font-semibold gap-2 ">
                         {links}
                         {user && user?.email ? (
                             <button onClick={logOut} className="btn bg-neutral text-brandLight hover:text-brandPrimary font-bold">
@@ -44,7 +44,7 @@ const Navbar = () => {
                             </button>
                         ) : (
                             <>
-                                <Link to="/auth/login" className="btn bg-brandPrimary text-brandLight hover:text-brandPrimary font-bold ">
+                                <Link to="/auth/login" className="btn bg-brandPrimary text-neutral hover:text-brandPrimary font-bold ">
                                     Login
                                 </Link>
                                 <Link to="/auth/register" className="btn bg-brandSecondary text-brandLight hover:text-brandSecondary font-bold lg:ml-2">
@@ -55,7 +55,7 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                <Link to="/" className="text-2xl font-extrabold text-brandLight flex items-center gap-2 transform transition-all hover:scale-105 cursor-pointer duration-300">
+                <Link to="/" className="text-2xl font-extrabold text-neutral flex items-center gap-2 transform transition-all hover:scale-105 cursor-pointer duration-300">
                     <img className="w-14" src={logo} alt="" />
                     <h2>TMS</h2>
                 </Link>
@@ -63,7 +63,7 @@ const Navbar = () => {
 
             {/* desktop menu  */}
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 text-brandLight gap-2 font-bold ">{links}</ul>
+                <ul className="menu menu-horizontal px-1 text-neutral gap-2 font-bold ">{links}</ul>
             </div>
 
             {/* user */}

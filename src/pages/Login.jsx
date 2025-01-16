@@ -1,4 +1,3 @@
-
 import { GoogleAuthProvider, sendPasswordResetEmail, signInWithPopup } from 'firebase/auth';
 import { useContext, useRef, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
@@ -66,7 +65,7 @@ const Login = () => {
 
     return (
         <div className="md:min-h-[calc(100vh-200px)] flex justify-center items-center">
-            <div className="card bg-base-100 w-full max-w-2xl shrink-0 shadow-2xl md:p-8 pt-6">
+            <div className="card bg-base-100 w-full max-w-2xl shrink-0 shadow-lg md:p-8 pt-6">
                 <h2 className="text-4xl font-semibold text-center text-brandPrimary pt-6">Login your account</h2>
                 <form onSubmit={handleSubmit} className="card-body">
                     <div className="form-control">
@@ -97,9 +96,9 @@ const Login = () => {
                     <div className="form-control mt-4">
                         <button className="btn text-white text-base btn-neutral">Login</button>
                     </div>
-
-                    <div className="form-control mt-6 flex justify-center gap-3">
-                        <button type="button" onClick={handleGoogleLogin} className="btn text-base bg-brandPrimary ">
+                    <div className="divider">OR</div>
+                    <div className="form-control flex justify-center gap-3">
+                        <button type="button" onClick={handleGoogleLogin} className="btn text-white text-base bg-brandPrimary ">
                             <img className="w-6 mr-1 shadow-2xl" src={google} alt="" /> Google Login
                         </button>
                     </div>
@@ -119,4 +118,3 @@ const Login = () => {
 };
 
 export default Login;
-

@@ -110,7 +110,7 @@ const Register = () => {
 
     return (
         <div className="md:min-h-screen flex justify-center items-center mb-10">
-            <div className="card bg-base-100 w-full max-w-3xl shrink-0 shadow-2xl md:p-8">
+            <div className="card bg-base-100 w-full max-w-2xl shrink-0 shadow-lg md:p-8">
                 <h2 className="text-4xl text-brandPrimary font-semibold text-center pt-10">Register your account</h2>
                 <form onSubmit={handleSubmit} className="card-body">
                     <div className="form-control">
@@ -186,7 +186,9 @@ const Register = () => {
 
                     {success && <p className="text-green-500 text-center mt-3">Sign up is Successful.</p>}
 
-                    <div className="form-control mt-6 flex justify-center gap-3">
+                    <div className="divider">OR</div>
+
+                    <div className="form-control flex justify-center gap-3">
                         <button type="button" onClick={handleGoogleLogin} className="btn text-base bg-brandPrimary text-white hover:text-gray-900">
                             <img className="w-6 mr-1 shadow-2xl" src={google} alt="" /> Google Sign Up
                         </button>

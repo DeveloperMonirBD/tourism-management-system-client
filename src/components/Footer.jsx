@@ -4,10 +4,10 @@ import { FaGithub, FaInstalod, FaLinkedin, FaTwitter } from 'react-icons/fa';
 const Footer = () => {
     return (
         <div id="footer" className=" bg-gray-800 text-white px-3 pt-20">
-            <footer className="footer p-10 container mx-auto lg:flex lg:justify-between items-start gap-10">
+            <footer className="footer pb-6 container mx-auto lg:flex lg:justify-between items-start gap-10">
                 <nav>
                     <div>
-                        <Link className=" text-brandPrimary text-4xl font-bold">TMS</Link>
+                        <Link className=" text-brandLight text-4xl font-bold">TMS</Link>
                     </div>
                     <div className="text-base space-y-2 mt-2">
                         <p>Location: av. Washington 165, NY CA 54003</p>

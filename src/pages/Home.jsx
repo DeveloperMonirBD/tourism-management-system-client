@@ -12,7 +12,6 @@ const Home = () => {
             <TourTravelGuide />
             <TouristStory />
             <ContactSection />
-            
         </div>
     );
 };
