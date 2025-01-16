@@ -22,9 +22,9 @@ const AboutUs = () => {
     }, [axiosPublic]);
 
     return (
-        <div className="max-w-[816px]  mx-auto bg-white p-20 rounded-lg shadow-lg w-full">
+        <div className="max-w-[1200px]  mx-auto bg-white p-20 rounded-lg shadow-sm w-full border">
             <div className="text-center mb-6">
-                <h2 className="text-2xl font-bold mb-4">Md. Monirul Islam</h2>
+                <h2 className="text-4xl font-bold mb-4">Md. Monirul Islam</h2>
                 <p className="mb-4">Email: mrmonir0558@gmail.com | Phone: (+88) 01745286828</p>
             </div>
             <div className="flex justify-between mb-6">

@@ -73,7 +73,7 @@ const TouristStory = () => {
                 <button className="btn btn-base text-lg" onClick={() => navigate('/dashboard/addStories')}>
                     Add Stories
                 </button>
-                <button className="btn btn-base text-lg" onClick={() => navigate('/dashboard/allStories')}>
+                <button className="btn btn-base text-lg" onClick={() => navigate('/community')}>
                     All Stories
                 </button>
             </div>

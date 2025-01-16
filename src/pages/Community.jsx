@@ -43,7 +43,7 @@ const Community = () => {
     };
     return (
         <div className="container mx-auto py-20">
-            <h2 className="text-4xl font-bold text-center mb-12">Tourist Stories</h2>
+            <h2 className="text-4xl font-bold text-center mb-12">All Tourist Stories</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {stories.map(story => (
                     <div key={story._id} className="p-4 border rounded-md shadow-sm">

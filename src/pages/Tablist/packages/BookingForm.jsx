@@ -50,7 +50,9 @@ const BookingForm = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto p-6 md:p-16 bg-white shadow-md rounded-md">
+        <div className='my-20'>
+            <h2 className='text-center font-bold text-4xl mb-10'>Booking Now</h2>
+        <div className="container mx-auto p-6 md:p-16 bg-white shadow-md rounded-md">
             <img src={user?.photoURL || 'default-image-url.jpg'} alt="Tourist" className="rounded-md mb-4" />
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                 <div className="form-control">
@@ -123,6 +125,7 @@ const BookingForm = () => {
                     </div>
                 </div>
             )}
+        </div>
         </div>
     );
 };

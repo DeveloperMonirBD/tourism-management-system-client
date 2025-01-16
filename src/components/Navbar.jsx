@@ -71,7 +71,7 @@ const Navbar = () => {
                 {/* profile img  */}
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                        <div className="w-20 rounded-full">
+                        <div className="w-20 rounded-full shadow-md border">
                             <div>
                                 {user && user?.email ? (
                                     <div className="flex items-center gap-2 group">

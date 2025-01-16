@@ -1,8 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
 import useAxiosPublic from '../../../hook/useAxiosPublic';
-
-
+import ReactStars from 'react-rating-stars-component';
 
 const GuideDetailsProfile = () => {
     const axiosPublic = useAxiosPublic();
@@ -45,9 +44,10 @@ const GuideDetailsProfile = () => {
                         <div className="space-y-3">
                             <h2 className="card-title">{guide.name}!</h2>
 
-                            <p className="text-lg mt-4">
-                                <strong>Rating: </strong> {guide.rating}
-                            </p>
+                            <div className="flex gap-2 items-center">
+                                <ReactStars count={5} value={guide.rating} size={24} activeColor="#ffd700" edit={false} isHalf={true} />
+                                <span className="ml-2 text-sm">{guide.rating} / 5</span>
+                            </div>
                             <p className="text-lg ">
                                 <strong>Experience: </strong>
                                 {guide.experience}

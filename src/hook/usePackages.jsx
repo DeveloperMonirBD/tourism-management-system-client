@@ -1,17 +1,17 @@
 import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from './useAxiosPublic';
 
-const useCart = () => {
+const usePackages = () => {
     // tan stack query
     const axiosPublic = useAxiosPublic();
-    const { data: cart = [] } = useQuery({
-        queryKey: ['cart'],
+    const { data: packageData = [] } = useQuery({
+        queryKey: ['packageData'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/api/packages');
+            const res = await axiosPublic.get('/api/trips');
             return res.data;
         }
     });
-    return [cart];
+    return [packageData];
 };
 
-export default useCart;
+export default usePackages;

@@ -1,24 +1,47 @@
-import useCart from "../../../hook/useCart";
-
+import { useEffect, useState } from 'react';
+import useAxiosPublic from '../../../hook/useAxiosPublic';
 
 const OurPackages = () => {
-    const [cart] = useCart()
+    const axiosPublic = useAxiosPublic();
+    const [packages, setPackages] = useState([]);
+
+    useEffect(() => {
+        const fetchPackages = async () => {
+            try {
+                const response = await axiosPublic.get('/api/packages');
+                setPackages(response.data);
+            } catch (error) {
+                console.error('Error fetching stories:', error);
+            }
+        };
+
+        fetchPackages();
+    }, [axiosPublic]);
+
     return (
-        <div className="packages grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-            {cart.map(pkg => (
-                <div key={pkg.id} className="card card-compact bg-base-100 shadow-xl">
-                    <figure className="h-[230px] lg:h-[280px]">
-                        <img src={pkg.photo} alt={pkg.trip_title} className="w-full bg-cover" />
-                    </figure>
-                    <div className="card-body mx-auto">
-                        <h2 className="card-title">{pkg.trip_title}!</h2>
-                        <p className="text-xl font-bold text-brandPrimary">{pkg.tour_type}</p>
-                        <p className="text-xl font-bold text-brandPrimary">${pkg.price}</p>
-                        <div className="card-actions justify-end py-2">
-                            <button className="btn w-full text-brandPrimary text-lg font-bold" onClick={() => (window.location.href = `/package/${pkg._id}`)}>
-                                View Details
-                            </button>
+        <div className="packages grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
+            {packages.map(pkg => (
+                <div key={pkg._id} className="px-4 pb-4 pt-2 border rounded-lg shadow-sm flex flex-col justify-between">
+                    <div className="flex-1 space-y-3 mt-3">
+                        <div className="h-[220px] lg:h-[260px] bg-cover">
+                            <img src={pkg.photo} alt="" className="w-full h-full bg-cover rounded-md" />
                         </div>
+                        <div className="pl-3 pt-2 text-left">
+                            <h2 className="text-xl font-semibold">{pkg.trip_title}</h2>
+                            <div className="text-lg space-y-2 mt-2">
+                                <p>
+                                    <span className="font-semibold">Tour Type :</span> {pkg.tour_type}
+                                </p>
+                                <p>
+                                    <span className="font-semibold">Price : </span> ${pkg.price}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="mt-6 flex-none pb-1">
+                        <button className="btn w-full text-lg font-bold" onClick={() => (window.location.href = `/package/${pkg._id}`)}>
+                            View Details
+                        </button>
                     </div>
                 </div>
             ))}
