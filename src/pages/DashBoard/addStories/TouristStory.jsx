@@ -48,15 +48,15 @@ const TouristStory = () => {
                 {stories.map(story => (
                     <div key={story._id} className="p-4 border rounded-md shadow-sm">
                         <div className="flex gap-2 items-center ">
-                            <img src={story.touristImageURL} className="w-14 h-14 rounded-full" alt="story.displayName" />
-                            <p className="font-bold">{story.touristName}</p>
+                            <img src={story.image} className="w-14 h-14 rounded-full" alt="story.displayName" />
+                            <p className="font-bold">{story.name}</p>
                         </div>
 
                         <div className="space-y-3 mt-3">
                             <h3 className="text-xl font-semibold">{story.title}</h3>
                             <p>{story.text}</p>
                             <div className="h-[220px] bg-cover">
-                                <img src={story.image_url} alt="" className="w-full h-full bg-cover" />
+                                <img src={story.photo_url} alt="" className="w-full h-full bg-cover" />
                             </div>
 
                             <div className="flex justify-between items-center mt-6">

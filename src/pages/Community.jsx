@@ -2,11 +2,13 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FacebookIcon } from 'react-share';
 
-import useAxiosPublic from '../hook/useAxiosPublic';
+// import useAxiosPublic from '../hook/useAxiosPublic';
 import { AuthContext } from '../provider/AuthProvider';
+import useAxiosSecure from '../hook/useAxiosSecure';
 
 const Community = () => {
-    const axiosPublic = useAxiosPublic();
+    // const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure()
     const { user } = useContext(AuthContext);
     const [stories, setStories] = useState([]);
     const [doShare, setDoShare] = useState(null);
@@ -15,7 +17,7 @@ const Community = () => {
     useEffect(() => {
         const fetchStories = async () => {
             try {
-                const response = await axiosPublic.get('/api/stories');
+                const response = await axiosSecure.get('/api/stories');
                 setStories(response.data);
             } catch (error) {
                 console.error('Error fetching stories:', error);
@@ -23,7 +25,7 @@ const Community = () => {
         };
 
         fetchStories();
-    }, [axiosPublic]);
+    }, [axiosSecure]);
 
     useEffect(() => {
         if (user && doShare) {
@@ -48,15 +50,15 @@ const Community = () => {
                 {stories.map(story => (
                     <div key={story._id} className="p-4 border rounded-md shadow-sm">
                         <div className="flex gap-2 items-center ">
-                            <img src={story.touristImageURL} className="w-14 h-14 rounded-full" alt="story.displayName" />
-                            <p className="font-bold">{story.touristName}</p>
+                            <img src={story.image} className="w-14 h-14 rounded-full" alt="story.displayName" />
+                            <p className="font-bold">{story.name}</p>
                         </div>
 
                         <div className="space-y-3 mt-3">
                             <h3 className="text-xl font-semibold">{story.title}</h3>
                             <p>{story.text}</p>
                             <div className="h-[220px] bg-cover">
-                                <img src={story.image_url} alt="" className="w-full h-full bg-cover" />
+                                <img src={story.photo_url} alt="" className="w-full h-full bg-cover" />
                             </div>
 
                             <div className="flex justify-between items-center mt-6">

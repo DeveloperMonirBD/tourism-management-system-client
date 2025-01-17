@@ -1,8 +1,8 @@
+import axios from 'axios';
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useAxiosPublic from '../../../hook/useAxiosPublic';
 import { AuthContext } from '../../../provider/AuthProvider';
-import axios from 'axios';
 
 const AddStories = () => {
     const axiosPublic = useAxiosPublic();
@@ -21,19 +21,19 @@ const AddStories = () => {
         formData.append('image', image);
         // send image data to imgbb
         const { data } = await axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`, formData);
-        
-        const image_url = data.data.display_url;
+
+        const photo_url = data.data.display_url;
 
         if (!user) {
             navigate('/auth/login');
         } else {
             const storiesData = {
-                touristName: user?.displayName || '',
-                touristEmail: user?.email || '',
-                touristImageURL: user?.photoURL || '',
+                name: user?.displayName || '',
+                image: user?.photoURL || '',
+                email: user?.email || '',
                 title,
                 text,
-                image_url
+                photo_url
             };
             try {
                 await axiosPublic.post('/api/stories', storiesData);
@@ -67,12 +67,12 @@ const AddStories = () => {
                     <label className="label">
                         <span className="label-text">Images</span>
                     </label>
-                    <input required type="file" name='image' accept='image/*' multiple  className="file-input file-input-bordered bg-bra" />
+                    <input required type="file" name="image" accept="image/*" multiple className="file-input file-input-bordered bg-bra" />
                 </div>
 
                 <div className="form-control mt-4">
                     <button className="btn bg-brandPrimary text-white text-lg hover:text-brandPrimary" type="submit">
-                        Submit Story
+                        Add Story
                     </button>
                 </div>
             </form>
