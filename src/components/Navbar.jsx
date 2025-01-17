@@ -84,10 +84,6 @@ const Navbar = () => {
                         </div>
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-64 p-3 shadow space-y-2">
-                        <li>
-                            <Link to="/myProfile">Profile</Link>
-                        </li>
-
                         <li>{user?.displayName}</li>
                         <li>{user?.email}</li>
                         <li>

@@ -28,10 +28,16 @@ const MyBookings = () => {
 
     return (
         <div className="overflow-x-auto mt-10 ">
-            <table className="table text-lg">
+            <div className='flex justify-between pl-3 items-center mb-6 text-lg lg:text-xl font-semibold'>
+                <h3>Items: {booking.length} </h3>
+                <h3>Total Price: {booking.length} </h3>
+                <h3>Total Price: {booking.length} </h3>
+                <button className='btn text-lg'>Pay</button>
+            </div>
+            <table className="table text-base">
                 {/* head */}
-                <thead className='bg-gray-100 text-neutral'>
-                    <tr className="text-lg">
+                <thead className="bg-gray-100 text-neutral">
+                    <tr className="text-base">
                         <th>#</th>
                         <th>Image</th>
                         <th>Package</th>
@@ -40,7 +46,6 @@ const MyBookings = () => {
                         <th>Price</th>
                         <th>Status</th>
                         <th>Action</th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -76,45 +81,13 @@ const MyBookings = () => {
                                 )} */}
                             </td>
                             <th>
-                                <button className="btn btn-ghost text-lg">Pay</button>
+                                <button className="btn btn-ghost text-base">Cansel</button>
                             </th>
                         </tr>
                     ))}
                 </tbody>
             </table>
         </div>
-
-        // <table>
-        //     <thead>
-        //         <tr>
-        //             <th>Package</th>
-        //             <th>Tour Guide</th>
-        //             <th>Tour Date</th>
-        //             <th>Price</th>
-        //             <th>Status</th>
-        //             <th>Action</th>
-        //         </tr>
-        //     </thead>
-        //     <tbody>
-        //         {bookings.map(booking => (
-        //             <tr key={booking.id}>
-        //                 <td>{booking.package}</td>
-        //                 <td>{booking.guide}</td>
-        //                 <td>{booking.date}</td>
-        //                 <td>{booking.price}</td>
-        //                 <td>{booking.status}</td>
-        //                 <td>
-        //                     {booking.status === 'Pending' && (
-        //                         <>
-        //                             <StripeCheckout token={token => handlePayment(booking.id)} stripeKey="your-stripe-public-key" amount={booking.price * 100} name="Payment" />
-        //                             <button onClick={() => handleCancel(booking.id)}>Cancel</button>
-        //                         </>
-        //                     )}
-        //                 </td>
-        //             </tr>
-        //         ))}
-        //     </tbody>
-        // </table>
     );
 };
 

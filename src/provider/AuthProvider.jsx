@@ -38,7 +38,8 @@ const AuthProvider = ({ children }) => {
         await axiosPublic.post(`/users/${userInfo?.email}`, {
             name: userInfo?.displayName,
             image: userInfo?.photoURL,
-            email: userInfo?.email
+            email: userInfo?.email,
+            role: "Tourist"
         });
     };
 
