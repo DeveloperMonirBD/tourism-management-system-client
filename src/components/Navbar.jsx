@@ -27,7 +27,7 @@ const Navbar = () => {
     );
 
     return (
-        <div className="navbar container mx-auto px-3 py-3">
+        <div className="navbar container mx-auto pl-3 pr-6 py-3">
             <div className="navbar-start">
                 {/* mobile dropdown  */}
                 <div className="dropdown">
@@ -67,7 +67,7 @@ const Navbar = () => {
             </div>
 
             {/* user */}
-            <div className="navbar-end hidden md:flex gap-3">
+            <div className="navbar-end md:flex gap-3">
                 {/* profile img  */}
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">

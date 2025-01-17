@@ -7,9 +7,9 @@ import { AuthContext } from '../provider/AuthProvider';
 const DashBoard = () => {
     const { user, logOut } = useContext(AuthContext);
     return (
-        <div className=" container mx-auto flex gap-12">
+        <div className=" container mx-auto gap-12">
             {/* dashBoard side bar  */}
-            <div className="w-72 min-h-screen bg-gray-100 p-4">
+            <div className="w-full md:w-72 min-h-screen bg-gray-100 p-4 md:fixed">
                 <div className="text-center mt-4">
                     <h1 className="text-4xl font-bold">Tourism</h1>
                     <p className="text-2xl font-bold">Management system</p>
@@ -95,7 +95,7 @@ const DashBoard = () => {
             </div>
 
             {/* dashboard content  */}
-            <div className="flex-1 pt-20">
+            <div className="flex-1 pt-14 md:ml-80 md:mt-0">
                 <Outlet />
             </div>
         </div>

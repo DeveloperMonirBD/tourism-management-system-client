@@ -2,13 +2,13 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FacebookIcon } from 'react-share';
 
-// import useAxiosPublic from '../hook/useAxiosPublic';
+import useAxiosPublic from '../hook/useAxiosPublic';
 import { AuthContext } from '../provider/AuthProvider';
-import useAxiosSecure from '../hook/useAxiosSecure';
+// import useAxiosSecure from '../hook/useAxiosSecure';
 
 const Community = () => {
-    // const axiosPublic = useAxiosPublic();
-    const axiosSecure = useAxiosSecure()
+    const axiosPublic = useAxiosPublic();
+    // const axiosSecure = useAxiosSecure()
     const { user } = useContext(AuthContext);
     const [stories, setStories] = useState([]);
     const [doShare, setDoShare] = useState(null);
@@ -17,7 +17,7 @@ const Community = () => {
     useEffect(() => {
         const fetchStories = async () => {
             try {
-                const response = await axiosSecure.get('/api/stories');
+                const response = await axiosPublic.get('/api/stories');
                 setStories(response.data);
             } catch (error) {
                 console.error('Error fetching stories:', error);
@@ -25,7 +25,7 @@ const Community = () => {
         };
 
         fetchStories();
-    }, [axiosSecure]);
+    }, [axiosPublic]);
 
     useEffect(() => {
         if (user && doShare) {
