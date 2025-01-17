@@ -33,6 +33,15 @@ const AuthProvider = ({ children }) => {
         return updateProfile(auth.currentUser, updatedData);
     };
 
+    // save user info in db
+    const updateUser = async userInfo => {
+        await axiosPublic.post(`/users/${userInfo?.email}`, {
+            name: userInfo?.displayName,
+            image: userInfo?.photoURL,
+            email: userInfo?.email
+        });
+    };
+
     const authInfo = {
         user,
         setUser,
@@ -41,12 +50,14 @@ const AuthProvider = ({ children }) => {
         logOut,
         loading,
         updateUserProfile,
-        auth
+        auth,
+        updateUser
     };
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+        const unsubscribe = onAuthStateChanged(auth, async currentUser => {
             setUser(currentUser);
+
             if (currentUser) {
                 //get token and store client
                 const userInfo = { email: currentUser.email };
@@ -62,6 +73,7 @@ const AuthProvider = ({ children }) => {
 
             setLoading(false);
         });
+
         return () => {
             unsubscribe();
         };

@@ -8,7 +8,7 @@ import { AuthContext } from '../provider/AuthProvider';
 import { toast, Toaster } from 'react-hot-toast';
 
 const Login = () => {
-    const { userLogin, setUser, auth } = useContext(AuthContext);
+    const { userLogin, setUser, auth, updateUser } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const [error, setError] = useState({});
     const [showPassword, setShowPassword] = useState(false);
@@ -38,7 +38,17 @@ const Login = () => {
 
     const handleGoogleLogin = () => {
         signInWithPopup(auth, googleProvider)
-            .then(() => {
+            
+            .then((res) => {
+                
+                // save user info in db start
+                const obj = {
+                    displayName: res.user.displayName,
+                    email: res.user.email,
+                    photoURL: res.user.photoURL
+                };
+                updateUser(obj); // save user info in db end
+
                 navigate(location?.state ? location.state : '/');
                 toast.success('Successfully logged in with Google!');
             })

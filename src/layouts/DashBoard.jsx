@@ -20,7 +20,7 @@ const DashBoard = () => {
                         <li>
                             <NavLink to="/dashboard/manageProfile">
                                 <FaUser />
-                                User Manage Profile
+                                Manage Profile
                             </NavLink>
                         </li>
                         <li>

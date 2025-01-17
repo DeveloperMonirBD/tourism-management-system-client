@@ -45,9 +45,6 @@ const ManageStories = () => {
         });
     };
 
-    // Edit stories card
-    
-
     // Null check for user
     if (!user) return <Loading />;
 

@@ -8,7 +8,7 @@ import { imageUpload } from '../api/utils';
 import { AuthContext } from '../provider/AuthProvider';
 
 const Register = () => {
-    const { createNewUser, setUser, updateUserProfile, auth } = useContext(AuthContext);
+    const { createNewUser, setUser, updateUserProfile, auth, updateUser } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const navigate = useNavigate();
     const [error, setError] = useState({});
@@ -68,10 +68,20 @@ const Register = () => {
         }
 
         createNewUser(email, password)
+            
             .then(result => {
                 const user = result.user;
                 setSuccess(true);
                 setUser(user);
+
+                // save user info in db start
+                const obj = {
+                    displayName: name,
+                    email: email,
+                    photoURL: image_url
+                };
+                updateUser(obj); // save user info in db end
+
                 updateUserProfile({ displayName: name, photoURL: image_url })
                     .then(() => {
                         navigate(location?.state ? location.state : '/');
