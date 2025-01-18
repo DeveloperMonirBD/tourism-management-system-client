@@ -7,7 +7,7 @@ import TourTravelGuide from './Tablist/packages/TourTravelGuide';
 
 const Home = () => {
     return (
-        <div className='container mx-auto py-20'>
+        <div>
             <Carousel />
             <Overview />
             <TourTravelGuide />

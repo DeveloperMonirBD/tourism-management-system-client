@@ -36,7 +36,7 @@ const ProfileUpdate = () => {
             setUser(auth.currentUser);
             toast.success('Profile updated successfully.');
             setTimeout(() => {
-                navigate('/myProfile');
+                navigate('/dashboard/manageProfile');
             }, 2000);
         } catch (error) {
             setErrorMessage(error.message);
@@ -53,8 +53,8 @@ const ProfileUpdate = () => {
     };
 
     return (
-        <div className="min-h-screen flex justify-center items-center">
-            <div className="card bg-base-100 w-full max-w-md p-8 shadow-2xl">
+        <div className=" flex justify-center items-center">
+            <div className="card bg-base-100 w-full max-w-md p-8 shadow-2xl my-20">
                 <h2 className="text-3xl font-semibold text-center">Update Profile</h2>
                 <form onSubmit={handleSubmit} className="card-body">
                     <div className="form-control">

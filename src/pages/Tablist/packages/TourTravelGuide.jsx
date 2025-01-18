@@ -11,8 +11,10 @@ const TourTravelGuide = () => {
             <div className="text-center">
                 <Tabs defaultIndex={tabIndex} onSelect={index => setTabIndex(index)}>
                     <TabList>
-                        <Tab>Our Packages</Tab>
-                        <Tab>Meet Our Tour Guides</Tab>
+                        <div className='text-xl font-semibold space-x-4'>
+                            <Tab>Our Packages</Tab>
+                            <Tab>Meet Our Tour Guides</Tab>
+                        </div>
                     </TabList>
 
                     <TabPanel>

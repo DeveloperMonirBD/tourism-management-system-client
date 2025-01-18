@@ -17,7 +17,7 @@ import slide6 from "../../src/assets/slide/slide-6.jpg"
 
 const Category = () => {
     return (
-        <div className="my-24 rounded-md">
+        <div className="my-24 rounded-md container mx-auto">
             <h2 className="text-4xl text-center font-bold mb-12">Tourist Category</h2>
             <Swiper
                 slidesPerView={3}

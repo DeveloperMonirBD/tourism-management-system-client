@@ -9,7 +9,7 @@ const ContactSection = () => {
         <div id="contact" className="contact py-20">
             <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="container mx-auto ">
                 <div>
-                    <div className="w-full border px-10 py-12 rounded-2xl mt-6 lg:mt-0 shadow-sm bg-base-100">
+                    <div className="w-full border px-10 py-12 rounded-2xl mt-6 lg:mt-0 shadow-sm">
                         <h2 className="text-4xl font-extrabold text-neutral text-center mb-8">Contact Us</h2>
 
                         <form action="https://api.web3forms.com/submit" method="POST">

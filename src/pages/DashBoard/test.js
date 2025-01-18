@@ -45,12 +45,14 @@ const ManageStories = () => {
         });
     };
 
+    // Edit stories card
+
     // Null check for user
     if (!user) return <Loading />;
 
     return (
         <div>
-            <h1 className="text--2xl md:text-4xl font-bold text-center mb-8">Manage Stories : {stories.length}</h1>
+            <h1 className="text-2xl md:text-3xl font-semibold text-center mb-10 mt-4">Manage Stories : {stories.length}</h1>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {stories.map(story => (
                     <div key={story._id} className="p-4 border rounded-md shadow-sm flex flex-col justify-between">
@@ -62,18 +64,18 @@ const ManageStories = () => {
                             <div className="space-y-3 mt-3">
                                 <h3 className="text-xl font-semibold">{story.title}</h3>
                                 <p>{story.text}</p>
-                                <div className="h-[220px] bg-cover">
+                                <div className="h-[250px] md:h-[230px] bg-cover">
                                     <img src={story.photo_url} alt="" className="w-full h-full bg-cover" />
                                 </div>
                             </div>
                         </div>
 
-                        <div className="mt-4 flex justify-between">
-                            <button onClick={() => (window.location.href = `/edit-story/${story._id}`)} className="bg-blue-500 text-white px-4 py-2 rounded">
+                        <div className="mt-4 flex justify-center gap-6">
+                            <button onClick={() => (window.location.href = `/edit-story/${story._id}`)} className="bg-gray-700 text-white btn text-lg">
                                 Edit
                             </button>
 
-                            <button onClick={() => handleDelete(story._id)} className="bg-red-500 text-white px-4 py-2 rounded">
+                            <button onClick={() => handleDelete(story._id)} className="bg-red-500 text-white btn text-lg">
                                 Delete
                             </button>
                         </div>
@@ -85,3 +87,30 @@ const ManageStories = () => {
 };
 
 export default ManageStories;
+
+
+
+
+
+bacend code: - 
+
+const ObjectId = require('mongodb').ObjectId;
+
+app.put('/api/stories/:id', async (req, res) => {
+  const { id } = req.params;
+  const updatedData = req.body;
+
+  try {
+    const collection = client.db('your-database-name').collection('stories');
+    await collection.updateOne(
+      { _id: ObjectId(id) },
+      { 
+        $set: updatedData
+      }
+    );
+    res.status(200).send('Story updated successfully');
+  } catch (error) {
+    console.error('Error updating story:', error);
+    res.status(500).send('An error occurred while updating the story');
+  }
+});

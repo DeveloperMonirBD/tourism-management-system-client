@@ -14,8 +14,8 @@ const MyProfile = () => {
     const [manageProfile] = useManageProfile();
     return (
         <>
-            <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="text-brandPrimary text-3xl font-bold text-center my-12">
-                <span className="text-gray-900">"Welcome To</span> My Profile"
+            <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="text-brandPrimary text-3xl font-semibold text-center my-12">
+                <span className="text-neutral">"Welcome To</span> My Profile"
             </motion.div>
             <motion.div
                 variants={fadeIn('left', 0.3)}

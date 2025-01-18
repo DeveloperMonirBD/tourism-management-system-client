@@ -16,13 +16,11 @@ import DashBoard from '../layouts/DashBoard';
 import ManageProfile from '../pages/DashBoard/ManageProfile';
 import MyBookings from '../pages/DashBoard/MyBookings';
 import ManageStories from '../pages/DashBoard/ManageStories';
-
 import JoinAsTourGuide from '../pages/DashBoard/JoinAsTourGuide';
 import PackageDetails from '../pages/Tablist/packages/packageDetails';
 import GuideDetailsProfile from '../pages/Tablist/guides/GuideDetailsProfile';
 import BookingForm from '../pages/Tablist/packages/BookingForm';
 import AddStories from '../pages/DashBoard/addStories/AddStories';
-import EditStoryModal from '../pages/DashBoard/EditStoryModal';
 
 
 
@@ -119,10 +117,6 @@ const routes = createBrowserRouter([
             {
                 path: 'addStories',
                 element: <AddStories />
-            },
-            {
-                path: 'api/stories/:id',
-                element: <EditStoryModal />
             },
             {
                 path: 'joinAsTourGuide',
