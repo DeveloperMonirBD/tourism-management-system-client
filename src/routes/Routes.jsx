@@ -21,6 +21,7 @@ import PackageDetails from '../pages/Tablist/packages/packageDetails';
 import GuideDetailsProfile from '../pages/Tablist/guides/GuideDetailsProfile';
 import BookingForm from '../pages/Tablist/packages/BookingForm';
 import AddStories from '../pages/DashBoard/addStories/AddStories';
+import AdminManageProfile from '../pages/DashBoard/Admin/AdminManageProfile';
 
 
 
@@ -36,19 +37,11 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/community',
-                element: (
-                    <PrivetRoute>
-                        <Community />
-                    </PrivetRoute>
-                )
+                element: <Community />
             },
             {
                 path: '/about-us',
-                element: (
-                    <PrivetRoute>
-                        <AboutUs />
-                    </PrivetRoute>
-                )
+                element: <AboutUs />
             },
             {
                 path: '/trips',
@@ -100,7 +93,11 @@ const routes = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <DashBoard />,
+        element: (
+            <PrivetRoute>
+                <DashBoard />
+            </PrivetRoute>
+        ),
         children: [
             {
                 path: 'manageProfile',
@@ -121,6 +118,10 @@ const routes = createBrowserRouter([
             {
                 path: 'joinAsTourGuide',
                 element: <JoinAsTourGuide />
+            },
+            {
+                path: 'adminManageProfile',
+                element: <AdminManageProfile />
             }
         ]
     }

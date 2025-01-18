@@ -2,7 +2,7 @@
 
 # Tourism Management System
 
-## Live URI
+## Live URL :
 
 Live Site:
 

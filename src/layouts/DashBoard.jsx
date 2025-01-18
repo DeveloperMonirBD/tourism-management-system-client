@@ -3,9 +3,14 @@ import { FaAddressCard, FaAppStoreIos, FaBabyCarriage, FaBook, FaHome, FaUser, F
 import { FaAddressBook } from 'react-icons/fa6';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
+import useManageProfile from '../hook/useManageProfile';
 
 const DashBoard = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [manageProfile] = useManageProfile()
+
+    const userRole = manageProfile.role;
+
     return (
         <div className=" container mx-auto gap-12">
             {/* dashBoard side bar  */}
@@ -17,41 +22,102 @@ const DashBoard = () => {
 
                 <div>
                     <ul className="menu mt-16 text-xl space-y-4">
-                        <li>
-                            <NavLink to="/dashboard/manageProfile">
-                                <FaUser />
-                                Manage Profile
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/dashboard/myBookings">
-                                <FaBook />
-                                My Bookings
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/dashboard/manageStories">
-                                <FaAppStoreIos />
-                                Manage Stories
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/dashboard/addStories">
-                                <FaAddressCard />
-                                Add Stories
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/dashboard/joinAsTourGuide">
-                                <FaAddressBook />
-                                Join as tour guide
-                            </NavLink>
-                        </li>
+                        {userRole == 'Tourist' && (
+                            <>
+                                <li>
+                                    <NavLink to="/dashboard/manageProfile">
+                                        <FaUser />
+                                        Manage Profile
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/myBookings">
+                                        <FaBook />
+                                        My Bookings
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/manageStories">
+                                        <FaAppStoreIos />
+                                        Manage Stories
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/addStories">
+                                        <FaAddressCard />
+                                        Add Stories
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/joinAsTourGuide">
+                                        <FaAddressBook />
+                                        Join as tour guide
+                                    </NavLink>
+                                </li>
+                            </>
+                        )}
+
+                        {userRole == 'Guide' && (
+                            <>
+                                <li>
+                                    <NavLink to="/dashboard/manageProfile">
+                                        <FaUser />
+                                        Manage Profile
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/myBookings">
+                                        <FaBook />
+                                        My Assigned Tour
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/manageStories">
+                                        <FaAppStoreIos />
+                                        Add Stories
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/addStories">
+                                        <FaAddressCard />
+                                        Manage Stories
+                                    </NavLink>
+                                </li>
+                            </>
+                        )}
+
+                        {userRole == 'Admin' && (
+                            <>
+                                <li>
+                                    <NavLink to="/dashboard/adminManageProfile">
+                                        <FaUser />
+                                        Manage Profile
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/myBookings">
+                                        <FaBook />
+                                        My Assigned Tour
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/manageStories">
+                                        <FaAppStoreIos />
+                                        Add Stories
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/addStories">
+                                        <FaAddressCard />
+                                        Manage Stories
+                                    </NavLink>
+                                </li>
+                            </>
+                        )}
                     </ul>
 
+                    {/* shared navbar links  */}
                     <div className="divider"></div>
-
-                    {/* Navbar section  */}
                     <ul className="menu mt-8 text-xl space-y-4">
                         <li>
                             <NavLink to="/">

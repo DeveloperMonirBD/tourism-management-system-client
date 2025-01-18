@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
+import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hook/useAxiosSecure';
 import { AuthContext } from '../../provider/AuthProvider';
 // import StripeCheckout from 'react-stripe-checkout';
@@ -9,7 +10,7 @@ const MyBookings = () => {
     const axiosSecure = useAxiosSecure();
 
     // Fetch stories using tanstack query
-    const { data: booking = []} = useQuery({
+    const { data: booking = [], refetch } = useQuery({
         queryKey: ['booking'],
         queryFn: async () => {
             const res = await axiosSecure.get(`/api/bookings/${user.email}`);
@@ -17,22 +18,39 @@ const MyBookings = () => {
         }
     });
 
+    const totalPrice = booking.reduce((total, item) => total + Number(item.price || 0), 0);
 
-    const handlePayment = bookingId => {
-        // Logic to handle payment
-    };
-
-    const handleCancel = bookingId => {
-        // Logic to handle cancel booking
+    const handleDelete = id => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then(result => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/api/bookings/${id}`).then(res => {
+                    if (res.data.deletedCount > 0) {
+                        refetch();
+                        Swal.fire({
+                            title: 'Deleted!',
+                            text: 'Your file has been canseled.',
+                            icon: 'success'
+                        });
+                    }
+                });
+            }
+        });
     };
 
     return (
         <div className="overflow-x-auto mt-10 ">
-            <div className='flex justify-between pl-3 items-center mb-6 text-lg lg:text-xl font-semibold'>
+            <div className="flex justify-between pl-3 items-center mb-6 text-lg lg:text-xl font-semibold">
                 <h3>Items: {booking.length} </h3>
-                <h3>Total Price: {booking.length} </h3>
-                <h3>Total Price: {booking.length} </h3>
-                <button className='btn text-lg'>Pay</button>
+                <h3>Total Price: ${totalPrice} </h3>
+                <button className="btn text-lg">Pay</button>
             </div>
             <table className="table text-base">
                 {/* head */}
@@ -81,7 +99,9 @@ const MyBookings = () => {
                                 )} */}
                             </td>
                             <th>
-                                <button className="btn btn-ghost text-base">Cansel</button>
+                                <button onClick={() => handleDelete(booking._id)} className="btn btn-ghost text-base">
+                                    Cansel
+                                </button>
                             </th>
                         </tr>
                     ))}
