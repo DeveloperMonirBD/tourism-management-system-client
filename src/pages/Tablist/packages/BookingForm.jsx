@@ -1,21 +1,19 @@
 import { useContext, useEffect, useState } from 'react';
-
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import useAxiosPublic from '../../../hook/useAxiosPublic';
 import useGuides from '../../../hook/useGuides';
 import { AuthContext } from '../../../provider/AuthProvider';
 
-const BookingForm = () => {
+const BookingForm = ({ packageTitle, packagePrice }) => {
     const axiosPublic = useAxiosPublic();
     const { user } = useContext(AuthContext);
     const [guides] = useGuides();
 
     const [date, setDate] = useState(new Date());
-    const [price, setPrice] = useState('');
-    const [packageName, setPackageName] = useState('');
-    const [guide, setGuide] = useState('');
+    const [guide, setGuide] = useState(guides.length > 0 ? guides[0].name : '');
     const [modalOpen, setModalOpen] = useState(false);
     const navigate = useNavigate();
 
@@ -34,14 +32,33 @@ const BookingForm = () => {
                 name: user?.displayName || '',
                 image: user?.photoURL || '',
                 email: user?.email || '',
-                packageName,
-                price,
+                packageName: packageTitle,
+                price: packagePrice,
                 tourDate: date,
-                tourGuideName: guide
+                tourGuideName: guide,
+                status: 'Pending'
             };
             try {
                 await axiosPublic.post('/api/bookings', bookingData);
-                alert('Booking information saved with pending status');
+
+                Swal.fire({
+                    title: 'Booking information saved with pending status',
+                    showClass: {
+                        popup: `
+                        animate__animated
+                        animate__fadeInUp
+                        animate__faster
+                    `
+                    },
+                    hideClass: {
+                        popup: `
+                        animate__animated
+                        animate__fadeOutDown
+                        animate__faster
+                    `
+                    }
+                });
+
                 setModalOpen(true);
             } catch (error) {
                 console.error('Error saving booking information:', error);
@@ -57,9 +74,9 @@ const BookingForm = () => {
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Name of the package</span>
+                            <span className="label-text">Name of the Package</span>
                         </label>
-                        <input type="text" value={packageName} onChange={e => setPackageName(e.target.value)} required className="input input-bordered" />
+                        <input type="text" value={packageTitle} readOnly required className="input input-bordered" />
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -83,7 +100,7 @@ const BookingForm = () => {
                         <label className="label">
                             <span className="label-text">Price</span>
                         </label>
-                        <input type="number" value={price} onChange={e => setPrice(e.target.value)} required className="input input-bordered" />
+                        <input type="number" value={packagePrice} readOnly required className="input input-bordered" />
                     </div>
                     <div className="form-control">
                         <label className="label">

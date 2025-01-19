@@ -22,6 +22,7 @@ import GuideDetailsProfile from '../pages/Tablist/guides/GuideDetailsProfile';
 import BookingForm from '../pages/Tablist/packages/BookingForm';
 import AddStories from '../pages/DashBoard/addStories/AddStories';
 import AdminManageProfile from '../pages/DashBoard/Admin/AdminManageProfile';
+import MyAssignedTour from '../pages/DashBoard/Guide/MyAssignedTour';
 
 
 
@@ -122,6 +123,10 @@ const routes = createBrowserRouter([
             {
                 path: 'adminManageProfile',
                 element: <AdminManageProfile />
+            },
+            {
+                path: 'myAssignedTour',
+                element: <MyAssignedTour />
             }
         ]
     }

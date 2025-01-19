@@ -11,7 +11,7 @@ const TourTravelGuide = () => {
             <div className="text-center">
                 <Tabs defaultIndex={tabIndex} onSelect={index => setTabIndex(index)}>
                     <TabList>
-                        <div className='text-xl font-semibold space-x-4'>
+                        <div className='text-lga md:text-xl font-semibold md:space-x-4'>
                             <Tab>Our Packages</Tab>
                             <Tab>Meet Our Tour Guides</Tab>
                         </div>

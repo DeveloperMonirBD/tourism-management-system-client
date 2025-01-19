@@ -2,12 +2,12 @@ import { useContext } from 'react';
 import { FaAddressCard, FaAppStoreIos, FaBabyCarriage, FaBook, FaHome, FaUser, FaUsers } from 'react-icons/fa';
 import { FaAddressBook } from 'react-icons/fa6';
 import { Link, NavLink, Outlet } from 'react-router-dom';
-import { AuthContext } from '../provider/AuthProvider';
 import useManageProfile from '../hook/useManageProfile';
+import { AuthContext } from '../provider/AuthProvider';
 
 const DashBoard = () => {
     const { user, logOut } = useContext(AuthContext);
-    const [manageProfile] = useManageProfile()
+    const [manageProfile] = useManageProfile();
 
     const userRole = manageProfile.role;
 
@@ -23,7 +23,7 @@ const DashBoard = () => {
                 <div>
                     <ul className="menu mt-16 text-xl space-y-4">
                         {userRole == 'Tourist' && (
-                            <>
+                            <ul className="menu text-xl space-y-4">
                                 <li>
                                     <NavLink to="/dashboard/manageProfile">
                                         <FaUser />
@@ -54,11 +54,11 @@ const DashBoard = () => {
                                         Join as tour guide
                                     </NavLink>
                                 </li>
-                            </>
+                            </ul>
                         )}
 
                         {userRole == 'Guide' && (
-                            <>
+                            <ul className="menu text-xl space-y-4">
                                 <li>
                                     <NavLink to="/dashboard/manageProfile">
                                         <FaUser />
@@ -66,7 +66,7 @@ const DashBoard = () => {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/myBookings">
+                                    <NavLink to="/dashboard/myAssignedTour">
                                         <FaBook />
                                         My Assigned Tour
                                     </NavLink>
@@ -83,11 +83,11 @@ const DashBoard = () => {
                                         Manage Stories
                                     </NavLink>
                                 </li>
-                            </>
+                            </ul>
                         )}
 
                         {userRole == 'Admin' && (
-                            <>
+                            <ul className="menu text-xl space-y-4">
                                 <li>
                                     <NavLink to="/dashboard/adminManageProfile">
                                         <FaUser />
@@ -112,7 +112,7 @@ const DashBoard = () => {
                                         Manage Stories
                                     </NavLink>
                                 </li>
-                            </>
+                            </ul>
                         )}
                     </ul>
 

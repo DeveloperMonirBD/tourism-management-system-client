@@ -7,8 +7,7 @@ const ManageProfile = () => {
     const userRole = manageProfile.role;
 
     return (
-        <>
-            
+        <>  
             {userRole ? (
                 <>
                     <MyProfile />

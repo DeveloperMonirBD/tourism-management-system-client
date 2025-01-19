@@ -63,7 +63,7 @@ const PackageDetails = () => {
             {/* all tour guides  */}
             <div>
                 <div>
-                    <h1 className='text-4xl font-bold text-center uppercase mt-20'>all tour guides</h1>
+                    <h1 className="text-4xl font-bold text-center uppercase mt-20">all tour guides</h1>
                 </div>
                 <div className="my-14 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 fri mx-auto">
                     {guides.map(guide => (
@@ -75,12 +75,10 @@ const PackageDetails = () => {
                 </div>
             </div>
 
-
             {/* booking form */}
             <div>
-                <BookingForm />
+                <BookingForm packageTitle={pkg.trip_title} packagePrice={pkg.price} />
             </div>
-
         </div>
     );
 };
