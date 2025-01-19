@@ -26,6 +26,7 @@ import AddPackagesForm from '../pages/DashBoard/Admin/AddPackagesForm';
 import ManageUsers from '../pages/DashBoard/Admin/ManageUsers';
 import AdminStatistics from '../pages/DashBoard/Admin/Statistics/AdminStatistics';
 import AdminProfile from '../pages/DashBoard/Admin/Profile/AdminProfile';
+import ManageCandidates from '../pages/DashBoard/Admin/Candidates.jsx/ManageCandidates';
 
 
 
@@ -142,6 +143,10 @@ const routes = createBrowserRouter([
             {
                 path: 'adminStatistics',
                 element: <AdminStatistics />
+            },
+            {
+                path: 'manageCandidates',
+                element: <ManageCandidates />
             }
         ]
     }

@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import useAxiosSecure from '../../hook/useAxiosSecure';
 import { AuthContext } from '../../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const JoinAsTourGuide = () => {
     const { user } = useContext(AuthContext);
@@ -18,14 +19,31 @@ const JoinAsTourGuide = () => {
             email: user?.email || '',
             applicationTitle,
             whyGuide,
-            cvLink
+            cvLink,
+            role: 'Tourist'
         };
 
         try {
             await axiosSecure.post('/api/applications', formData);
+            Swal.fire({
+                title: 'Application Successful',
+                text: 'Your application has been successfully submitted!',
+                icon: 'success',
+                confirmButtonText: 'Okay'
+            }).then(() => {
+                setApplicationTitle('');
+                setWhyGuide('');
+                setCvLink('');
+            });
             setShowModal(true);
         } catch (error) {
             console.error('Error submitting application:', error);
+            Swal.fire({
+                title: 'Submission Error',
+                text: 'There was a problem submitting your application. Please try again later.',
+                icon: 'error',
+                confirmButtonText: 'Close'
+            });
         }
     };
 
@@ -41,7 +59,7 @@ const JoinAsTourGuide = () => {
                         type="text"
                         id="applicationTitle"
                         className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        placeholder='Enter application title'
+                        placeholder="Enter application title"
                         required
                         value={applicationTitle}
                         onChange={e => setApplicationTitle(e.target.value)}
@@ -55,7 +73,7 @@ const JoinAsTourGuide = () => {
                         id="whyGuide"
                         className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         rows="3"
-                        placeholder='Write description '
+                        placeholder="Write description"
                         required
                         value={whyGuide}
                         onChange={e => setWhyGuide(e.target.value)}></textarea>
@@ -68,7 +86,7 @@ const JoinAsTourGuide = () => {
                         type="url"
                         id="cvLink"
                         className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        placeholder='Enter cv link'
+                        placeholder="Enter cv link"
                         required
                         value={cvLink}
                         onChange={e => setCvLink(e.target.value)}

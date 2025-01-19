@@ -113,6 +113,12 @@ const DashBoard = () => {
                                         Manage Users
                                     </NavLink>
                                 </li>
+                                <li>
+                                    <NavLink to="/dashboard/manageCandidates">
+                                        <FaAddressCard />
+                                       Candidates
+                                    </NavLink>
+                                </li>
                             </ul>
                         )}
                     </ul>
