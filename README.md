@@ -2,9 +2,7 @@
 
 # Tourism Management System
 
-## Live URL :
-
-Live Site:
+## Live URL : https://tourism-management-syste-24ab2.web.app
 
 ## Overview
 
@@ -129,7 +127,7 @@ trips effectively.
 
 4. Open your browser and navigate to
 
-`.........` to view the application.
+`https://tourism-management-syste-24ab2.web.app` to view the application.
 
 ## What to Submit
 
@@ -139,7 +137,7 @@ Your client-side code GitHub repository link : https://github.com/Programming-He
 
 Your server-side code GitHub repository link: https://github.com/Programming-Hero-Web-Course4/b10a12-server-side-DeveloperMonirBD
 
-Live link to the deployed project :
+Live link to the deployed project : https://tourism-management-syste-24ab2.web.app
 
 **Enjoy exploring the beautiful landscapes and cultures of Bangladesh with the Tourist Guide site!**
 

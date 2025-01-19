@@ -7,7 +7,7 @@ const usePackages = () => {
     const { data: packageData = [] } = useQuery({
         queryKey: ['packageData'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/api/trips');
+            const res = await axiosPublic.get(`${import.meta.env.VITE_API_URL}/api/trips`);
             return res.data;
         }
     });

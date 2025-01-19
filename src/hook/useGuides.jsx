@@ -7,7 +7,7 @@ const useGuides = () => {
     const { data: guides = [] } = useQuery({
         queryKey: ['guide'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/api/tourGuides');
+            const res = await axiosPublic.get(`${import.meta.env.VITE_API_URL}/api/tourGuides`);
             return res.data;
         }
     });

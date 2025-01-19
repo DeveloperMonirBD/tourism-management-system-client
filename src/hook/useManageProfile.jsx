@@ -12,7 +12,7 @@ const useManageProfile = () => {
     const { data: manageProfile = [], error } = useQuery({
         queryKey: ['manageProfile', user.email], // added dependency
         queryFn: async () => {
-            const res = await axiosSecure.get(`/api/users/${user.email}`);
+            const res = await axiosSecure.get(`${import.meta.env.VITE_API_URL}/api/users/${user.email}`);
             return res.data;
         },
         onError: error => {
