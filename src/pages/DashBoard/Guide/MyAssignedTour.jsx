@@ -11,7 +11,7 @@ const MyAssignedTour = () => {
     const { data: booking = [], refetch } = useQuery({
         queryKey: ['booking'],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/api/bookingsgs`);
+            const res = await axiosSecure.get(`/api/bookings`);
             return res.data;
         }
     });

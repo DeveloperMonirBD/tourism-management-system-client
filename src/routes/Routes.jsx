@@ -21,8 +21,11 @@ import PackageDetails from '../pages/Tablist/packages/packageDetails';
 import GuideDetailsProfile from '../pages/Tablist/guides/GuideDetailsProfile';
 import BookingForm from '../pages/Tablist/packages/BookingForm';
 import AddStories from '../pages/DashBoard/addStories/AddStories';
-import AdminManageProfile from '../pages/DashBoard/Admin/AdminManageProfile';
 import MyAssignedTour from '../pages/DashBoard/Guide/MyAssignedTour';
+import AddPackagesForm from '../pages/DashBoard/Admin/AddPackagesForm';
+import ManageUsers from '../pages/DashBoard/Admin/ManageUsers';
+import AdminStatistics from '../pages/DashBoard/Admin/Statistics/AdminStatistics';
+import AdminProfile from '../pages/DashBoard/Admin/Profile/AdminProfile';
 
 
 
@@ -121,12 +124,24 @@ const routes = createBrowserRouter([
                 element: <JoinAsTourGuide />
             },
             {
-                path: 'adminManageProfile',
-                element: <AdminManageProfile />
-            },
-            {
                 path: 'myAssignedTour',
                 element: <MyAssignedTour />
+            },
+            {
+                path: 'AddPackagesForm',
+                element: <AddPackagesForm />
+            },
+            {
+                path: 'manageUsers',
+                element: <ManageUsers />
+            },
+            {
+                path: 'adminProfile',
+                element: <AdminProfile />
+            },
+            {
+                path: 'adminStatistics',
+                element: <AdminStatistics />
             }
         ]
     }

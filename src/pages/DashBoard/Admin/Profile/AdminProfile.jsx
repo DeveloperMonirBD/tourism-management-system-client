@@ -1,27 +1,25 @@
 //motion
 import { motion } from 'framer-motion';
 //variants
-import { fadeIn } from '../../../variants';
+import { fadeIn } from '../../../../variants';
 
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import userIcon from '../../../assets/user.png';
-import useManageProfile from '../../../hook/useManageProfile';
-import { AuthContext } from '../../../provider/AuthProvider';
+import userIcon from '../../../../assets/user.png';
+import useManageProfile from '../../../../hook/useManageProfile';
+import { AuthContext } from '../../../../provider/AuthProvider';
 
-const AdminManageProfile = () => {
+import AdminStatistics from '../Statistics/AdminStatistics';
+
+const AdminProfile = () => {
     const { user } = useContext(AuthContext);
     const [manageProfile] = useManageProfile();
     return (
         <>
-            <motion.div
-                variants={fadeIn('up', 0.2)}
-                initial="hidden"
-                whileInView={'show'}
-                viewport={{ once: false, amount: 0.7 }}
-                className="text-brandPrimary text-3xl font-semibold text-center my-12">
-                <span className="text-neutral">"Welcome To</span> My Profile"
-            </motion.div>
+
+            {/* admin statistic component */}
+            <AdminStatistics />
+
             <motion.div
                 variants={fadeIn('left', 0.3)}
                 initial="hidden"
@@ -59,4 +57,4 @@ const AdminManageProfile = () => {
     );
 };
 
-export default AdminManageProfile;
+export default AdminProfile;

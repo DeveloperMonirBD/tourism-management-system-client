@@ -1,5 +1,6 @@
 import useManageProfile from '../../hook/useManageProfile';
 import MyProfile from '../MyProfile';
+import AdminProfile from './Admin/Profile/AdminProfile';
 
 const ManageProfile = () => {
     const [manageProfile] = useManageProfile();
@@ -7,14 +8,13 @@ const ManageProfile = () => {
     const userRole = manageProfile.role;
 
     return (
-        <>  
-            {userRole ? (
-                <>
-                    <MyProfile />
-                </>
-            ) : (
-                <></>
-            )}
+        <>
+            {userRole == 'Tourist' && (
+                <MyProfile />)}
+            {userRole == 'Guide' && (
+                <MyProfile />)}
+            {userRole == 'Admin' && (
+                <AdminProfile />)}
         </>
     );
 };

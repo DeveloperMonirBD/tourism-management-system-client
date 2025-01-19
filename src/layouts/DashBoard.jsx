@@ -12,7 +12,7 @@ const DashBoard = () => {
     const userRole = manageProfile.role;
 
     return (
-        <div className=" container mx-auto gap-12">
+        <div className="gap-20 mr-10">
             {/* dashBoard side bar  */}
             <div className="w-full md:w-72 min-h-screen bg-gray-100 p-4 md:fixed">
                 <div className="text-center mt-4">
@@ -89,27 +89,28 @@ const DashBoard = () => {
                         {userRole == 'Admin' && (
                             <ul className="menu text-xl space-y-4">
                                 <li>
-                                    <NavLink to="/dashboard/adminManageProfile">
+                                    <NavLink to="/dashboard/adminProfile">
                                         <FaUser />
                                         Manage Profile
                                     </NavLink>
                                 </li>
+
                                 <li>
-                                    <NavLink to="/dashboard/myBookings">
-                                        <FaBook />
-                                        My Assigned Tour
+                                    <NavLink to="/dashboard/AddPackagesForm">
+                                        <FaAppStoreIos />
+                                        Add Package
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/dashboard/manageStories">
-                                        <FaAppStoreIos />
-                                        Add Stories
+                                        <FaAddressCard />
+                                        Manage stories
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/addStories">
+                                    <NavLink to="/dashboard/manageUsers">
                                         <FaAddressCard />
-                                        Manage Stories
+                                        Manage Users
                                     </NavLink>
                                 </li>
                             </ul>
