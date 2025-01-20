@@ -102,12 +102,6 @@ const DashBoard = () => {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/manageStories">
-                                        <FaAddressCard />
-                                        Manage stories
-                                    </NavLink>
-                                </li>
-                                <li>
                                     <NavLink to="/dashboard/manageUsers">
                                         <FaAddressCard />
                                         Manage Users

@@ -1,75 +1,112 @@
-import { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import useAxiosSecure from '../../../../hook/useAxiosSecure';
+import { axiosSecure } from '../../../../hook/useAxiosSecure';
+import Swal from 'sweetalert2';
+
+const fetchApplications = async () => {
+    const { data } = await axios.get('http://localhost:5000/api/applications');
+    return data;
+};
 
 const ManageCandidates = () => {
-    const [applications, setApplications] = useState([]);
-    const axiosSecure = useAxiosSecure();
+    const { data: applications = [], isLoading, refetch } = useQuery({
+        queryKey: ['applications'],
+        queryFn: fetchApplications,
+    });
 
-    useEffect(() => {
-        fetchApplications();
-    }, []);
+    const handleAccept = async (applicationId) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'Do you want to accept this application and change the role to Guide?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, accept it!'
+        }).then(async result => {
+            if (result.isConfirmed) {
+                try {
+                    // Update the user's role to "Guide"
+                    await axiosSecure.put(`/api/users/${applicationId}`, { role: 'Guide' }); // Use applicationId as the user identifier
 
-    const fetchApplications = async () => {
-        try {
-            const response = await axiosSecure.get('/api/applications');
-            setApplications(response.data);
-        } catch (error) {
-            console.error('Error fetching applications:', error);
-        }
+                    // Delete the application
+                    await axiosSecure.delete(`/api/applications/${applicationId}`);
+
+                    refetch();
+                    Swal.fire('Accepted!', 'The application has been accepted and user role updated.', 'success');
+                } catch (error) {
+                    console.error('Error accepting application:', error);
+                    Swal.fire('Error!', 'There was an issue accepting the application.', 'error');
+                }
+            }
+        });
     };
 
-    const handleAccept = async (applicationId, userId) => {
-        try {
-            await axiosSecure.put(`/api/users/${userId}/role`, { role: 'tour-guide' });
-            await axiosSecure.delete(`/api/applications/${applicationId}`);
-            fetchApplications();
-        } catch (error) {
-            console.error('Error accepting application:', error);
-        }
+    const handleReject = (applicationId) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'Do you want to reject this application?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, reject it!',
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    await axiosSecure.delete(`/api/applications/${applicationId}`);
+                    refetch();
+                    Swal.fire('Rejected!', 'The application has been rejected.', 'success');
+                } catch (error) {
+                    console.error('Error rejecting application:', error);
+                    Swal.fire('Error!', 'There was an issue rejecting the application.', 'error');
+                }
+            }
+        });
     };
 
-    const handleReject = async applicationId => {
-        try {
-            await axiosSecure.delete(`/api/applications/${applicationId}`);
-            fetchApplications();
-        } catch (error) {
-            console.error('Error rejecting application:', error);
-        }
-    };
+    if (isLoading) return <p>Loading...</p>;
 
     return (
-        <div className="p-6">
-            <h1 className="text-3xl font-bold text-gray-700 mb-8 text-center">Manage Candidates</h1>
-            <table className="min-w-full overflow-x-auto">
-                <thead>
-                    <tr className="text-base">
-                        <th className="w-1/4 px-4 py-2">Name</th>
-                        <th className="w-1/4 px-4 py-2">Email</th>
-                        <th className="w-1/4 px-4 py-2">Role</th>
-                        <th className="w-1/4 px-4 py-2">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {applications.map(application => (
-                        <tr key={application._id} className="text-base text-center">
-                            <td className="border px-4">{application.name}</td>
-                            <td className="border px-4">{application.email}</td>
-                            <td className="border px-4">{application.role}</td>
-                            <td className="border px-4">
-                                <div className="flex items-center justify-center gap-2 py-3">
-                                    <button onClick={() => handleAccept(application._id, application.userId)} className="bg-green-500 text-white btn btn-sm">
+        <div className="min-h-screen bg-gray-100 p-6">
+            <h1 className="text-2xl font-bold mb-4">Manage Candidates</h1>
+            <div className="bg-white shadow rounded p-4">
+                <table className="table-auto w-full text-left border-collapse">
+                    <thead>
+                        <tr>
+                            <th className="border-b px-4 py-2">Name</th>
+                            <th className="border-b px-4 py-2">Email</th>
+                            <th className="border-b px-4 py-2">Application Title</th>
+                            <th className="border-b px-4 py-2">Why Guide</th>
+                            <th className="border-b px-4 py-2">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {applications.map((app) => (
+                            <tr key={app._id}>
+                                <td className="border-b px-4 py-2">{app.name}</td>
+                                <td className="border-b px-4 py-2">{app.email}</td>
+                                <td className="border-b px-4 py-2">{app.applicationTitle}</td>
+                                <td className="border-b px-4 py-2">{app.whyGuide}</td>
+                                <td className="border-b px-4 py-2">
+                                    <button
+                                        className="bg-green-500 text-white px-4 py-2 rounded mr-2"
+                                        onClick={() => handleAccept(app._id)}
+                                    >
                                         Accept
                                     </button>
-                                    <button onClick={() => handleReject(application._id)} className=" btn btn-sm bg-red-500 text-white">
+                                    <button
+                                        className="bg-red-500 text-white px-4 py-2 rounded"
+                                        onClick={() => handleReject(app._id)}
+                                    >
                                         Reject
                                     </button>
-                                </div>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

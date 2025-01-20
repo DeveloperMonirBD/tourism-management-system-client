@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
+import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hook/useAxiosSecure';
 import { AuthContext } from '../../provider/AuthProvider';
-import Swal from 'sweetalert2';
 
 const JoinAsTourGuide = () => {
     const { user } = useContext(AuthContext);
@@ -19,8 +19,7 @@ const JoinAsTourGuide = () => {
             email: user?.email || '',
             applicationTitle,
             whyGuide,
-            cvLink,
-            role: 'Tourist'
+            cvLink
         };
 
         try {

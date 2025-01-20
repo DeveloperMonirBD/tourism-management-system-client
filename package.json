@@ -25,6 +25,7 @@
     "react-player": "^2.16.0",
     "react-rating-stars-component": "^2.2.0",
     "react-router-dom": "^6.27.0",
+    "react-select": "^5.9.0",
     "react-share": "^5.1.2",
     "react-stripe-checkout": "^2.6.3",
     "react-tabs": "^6.1.0",
