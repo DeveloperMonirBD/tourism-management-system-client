@@ -1,42 +1,107 @@
-// import UserDataRow from '../../../components/Dashboard/TableRows/UserDataRow'
-import UserDataRow from './TableRows/UserDataRow';
+import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
+import Select from 'react-select';
+import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../hook/useAxiosSecure';
 
 const ManageUsers = () => {
+    const axiosSecure = useAxiosSecure();
+    const [searchTerm, setSearchTerm] = useState('');
+    const [selectedRole, setSelectedRole] = useState('');
 
+    // Fetch users
+    const fetchUsers = async filters => {
+        const { data } = await axiosSecure.get('/api/users', { params: filters });
+        return data;
+    };
+
+    const {
+        data: users = [],
+        isLoading,
+        refetch
+    } = useQuery({
+        queryKey: ['users', { searchTerm, selectedRole }],
+        queryFn: () => fetchUsers({ searchTerm, role: selectedRole })
+    });
+    
+    // Update user role
+    const handleRoleChange = async (email, newRole) => {
+        try {
+            const result = await Swal.fire({
+                title: 'Are you sure?',
+                text: `Do you want to change the user role to ${newRole}?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, change it!'
+            });
+
+            if (result.isConfirmed) {
+                await axiosSecure.put('/api/users/update-role', { email, role: newRole });
+                refetch();
+                Swal.fire('Success!', 'User role has been updated.', 'success');
+            }
+        } catch (error) {
+            console.error('Error updating role:', error);
+            Swal.fire('Error!', 'Failed to update user role.', 'error');
+        }
+    };
+
+    const roles = [
+        { value: '', label: 'All Roles' },
+        { value: 'Tourist', label: 'Tourist' },
+        { value: 'Guide', label: 'Guide' },
+        { value: 'Admin', label: 'Admin' }
+    ];
+
+    if (isLoading) return <p>Loading users...</p>;
 
     return (
-        <>
-            <div className="container mx-auto px-4 sm:px-8">
-                <div className="py-8">
-                    <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-                        <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
-                            <table className="min-w-full leading-normal">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                            Email
-                                        </th>
-                                        <th scope="col" className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                            Role
-                                        </th>
-                                        <th scope="col" className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                            Status
-                                        </th>
-
-                                        <th scope="col" className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                            Action
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <UserDataRow />
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+        <div className="min-h-screen bg-gray-100 p-6">
+            <h1 className="text-2xl font-bold mb-4">Manage Users</h1>
+            <div className="mb-6 flex gap-4">
+                <input type="text" placeholder="Search by Name or Email" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} className="border rounded p-2 w-1/3" />
+                <Select options={roles} value={roles.find(role => role.value === selectedRole)} onChange={selected => setSelectedRole(selected?.value || '')} className="w-1/3" />
+                <button onClick={refetch} className="bg-blue-500 text-white px-4 py-2 rounded">
+                    Search
+                </button>
             </div>
-        </>
+            <div className="bg-white shadow rounded p-4 overflow-x-auto">
+                <table className="table-auto w-full text-left border-collapse">
+                    <thead>
+                        <tr>
+                            <th className="border-b px-4 py-2">Name</th>
+                            <th className="border-b px-4 py-2">Email</th>
+                            <th className="border-b px-4 py-2">Role</th>
+                            <th className="border-b px-4 py-2">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {users.map(user => (
+                            <tr key={user._id}>
+                                <td className="border-b px-4 py-2">{user.name}</td>
+                                <td className="border-b px-4 py-2">{user.email}</td>
+                                <td className="border-b px-4 py-2">{user.role}</td>
+                                <td className="border-b px-4 py-2">
+                                    {user.role !== 'Admin' && (
+                                        <Select
+                                            options={[
+                                                { value: 'Tourist', label: 'Tourist' },
+                                                { value: 'Guide', label: 'Guide' }
+                                            ]}
+                                            value={{ value: user.role, label: user.role }}
+                                            onChange={selected => handleRoleChange(user.email, selected.value)}
+                                            className="w-40"
+                                        />
+                                    )}
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     );
 };
 

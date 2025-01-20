@@ -98,7 +98,7 @@ const AddPackagesForm = () => {
             <input type="number" name="price" value={formData.price} onChange={handleFormChange} required className="w-full mb-4 p-2 border rounded" />
 
             <label className="block mb-2">Gallery URLs (comma-separated):</label>
-            <input type="text" name="gallery" value={formData.gallery} onChange={handleFormChange} required className="w-full mb-4 p-2 border rounded" />
+            <input type="text" name="photo" value={formData.photo} onChange={handleFormChange} required className="w-full mb-4 p-2 border rounded" />
 
             <label className="block mb-2">Description:</label>
             <textarea name="description" value={formData.description} onChange={handleFormChange} required className="w-full mb-4 p-2 border rounded" />

@@ -1,20 +1,25 @@
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
-import { axiosSecure } from '../../../../hook/useAxiosSecure';
 import Swal from 'sweetalert2';
-
-const fetchApplications = async () => {
-    const { data } = await axios.get('http://localhost:5000/api/applications');
-    return data;
-};
+import useAxiosSecure from '../../../../hook/useAxiosSecure';
 
 const ManageCandidates = () => {
-    const { data: applications = [], isLoading, refetch } = useQuery({
+    const axiosSecure = useAxiosSecure();
+
+    const fetchApplications = async () => {
+        const { data } = await axiosSecure.get('/api/applications');
+        return data;
+    };
+
+    const {
+        data: applications = [],
+        isLoading,
+        refetch
+    } = useQuery({
         queryKey: ['applications'],
-        queryFn: fetchApplications,
+        queryFn: fetchApplications
     });
 
-    const handleAccept = async (applicationId) => {
+    const handleAccept = async (applicationId, email) => {
         Swal.fire({
             title: 'Are you sure?',
             text: 'Do you want to accept this application and change the role to Guide?',
@@ -27,7 +32,7 @@ const ManageCandidates = () => {
             if (result.isConfirmed) {
                 try {
                     // Update the user's role to "Guide"
-                    await axiosSecure.put(`/api/users/${applicationId}`, { role: 'Guide' }); // Use applicationId as the user identifier
+                    await axiosSecure.put(`/api/users/${email}`, { role: 'Guide' }); // Use applicationId as the user identifier
 
                     // Delete the application
                     await axiosSecure.delete(`/api/applications/${applicationId}`);
@@ -42,7 +47,10 @@ const ManageCandidates = () => {
         });
     };
 
-    const handleReject = (applicationId) => {
+
+
+    
+    const handleReject = applicationId => {
         Swal.fire({
             title: 'Are you sure?',
             text: 'Do you want to reject this application?',
@@ -50,8 +58,8 @@ const ManageCandidates = () => {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, reject it!',
-        }).then(async (result) => {
+            confirmButtonText: 'Yes, reject it!'
+        }).then(async result => {
             if (result.isConfirmed) {
                 try {
                     await axiosSecure.delete(`/api/applications/${applicationId}`);
@@ -70,7 +78,7 @@ const ManageCandidates = () => {
     return (
         <div className="min-h-screen bg-gray-100 p-6">
             <h1 className="text-2xl font-bold mb-4">Manage Candidates</h1>
-            <div className="bg-white shadow rounded p-4">
+            <div className="bg-white shadow rounded p-4 overflow-x-auto">
                 <table className="table-auto w-full text-left border-collapse">
                     <thead>
                         <tr>
@@ -82,23 +90,17 @@ const ManageCandidates = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {applications.map((app) => (
+                        {applications.map(app => (
                             <tr key={app._id}>
                                 <td className="border-b px-4 py-2">{app.name}</td>
                                 <td className="border-b px-4 py-2">{app.email}</td>
                                 <td className="border-b px-4 py-2">{app.applicationTitle}</td>
                                 <td className="border-b px-4 py-2">{app.whyGuide}</td>
                                 <td className="border-b px-4 py-2">
-                                    <button
-                                        className="bg-green-500 text-white px-4 py-2 rounded mr-2"
-                                        onClick={() => handleAccept(app._id)}
-                                    >
+                                    <button className="bg-green-500 text-white px-4 py-2 rounded mr-2" onClick={() => handleAccept(app._id, app.email)}>
                                         Accept
                                     </button>
-                                    <button
-                                        className="bg-red-500 text-white px-4 py-2 rounded"
-                                        onClick={() => handleReject(app._id)}
-                                    >
+                                    <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => handleReject(app._id)}>
                                         Reject
                                     </button>
                                 </td>
