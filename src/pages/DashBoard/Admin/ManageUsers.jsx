@@ -11,8 +11,6 @@ const ManageUsers = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredUsers, setFilteredUsers] = useState([]);
 
-    console.log(filteredUsers);
-
     // Fetch users
     const fetchUsers = async filters => {
         const { data } = await axiosSecure.get('/api/users', { params: filters });
@@ -20,12 +18,13 @@ const ManageUsers = () => {
     };
 
     const {
-        data: users = [],
+        data: users,
         isLoading,
         refetch
     } = useQuery({
-        queryKey: ['users', { selectedRole }],
-        queryFn: () => fetchUsers({ role: selectedRole })
+        queryKey: ['users',  selectedRole ],
+        queryFn: () => fetchUsers({ role: selectedRole }),
+        initialData:[]
     });
 
     useEffect(() => {
@@ -42,6 +41,17 @@ const ManageUsers = () => {
             setFilteredUsers(users.filter(user => user.name.toLowerCase().includes(searchTerm.toLowerCase())));
         }
     };
+
+    // filter option
+    const handleFilterChange = e => {
+        const userType = e.target.value;
+        if (userType === '') {
+            setFilteredUsers(users);
+        } else {
+            setFilteredUsers(users.filter(user => user.role === userType));
+        }
+    };
+
 
     // Update user role
     const handleRoleChange = async (email, newRole) => {
@@ -72,16 +82,30 @@ const ManageUsers = () => {
     return (
         <div className="min-h-screen bg-gray-100 p-6">
             <h1 className="text-3xl font-bold my-6 text-center mb-10">Manage Users</h1>
+            <div className='md:flex justify-between'>
+                {/* search input  */}
+                <div className="mb-8 flex items-center gap-6">
+                    <input
+                        type="text"
+                        value={searchTerm}
+                        onChange={handleSearchChange}
+                        placeholder="Search by email"
+                        className="mt-1 block w-[300px] pl-3 pr-10 py-3 text-base border  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                    />
+                </div>
 
-            {/* search input  */}
-            <div className="mb-8 flex items-center mb-6">
-                <input
-                    type="text"
-                    value={searchTerm}
-                    onChange={handleSearchChange}
-                    placeholder="Search by email"
-                    className="mt-1 block w-[300px] pl-3 pr-10 py-3 text-base border-neutral  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-                />
+                {/* input field  */}
+                <div className="mb-8 md:w-[360px]">
+                    <select
+                        id="userType"
+                        name="userType"
+                        onChange={handleFilterChange}
+                        className="mt-2 block w-full pl-3 pr-10 py-3 text-base border-brandPrimary focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-md rounded-lg ">
+                        <option value="">All User Types</option>
+                        <option value="Tourist">Tourist</option>
+                        <option value="Guide">Guide</option>
+                    </select>
+                </div>
             </div>
 
             <div className=" rounded p-4 overflow-x-auto shadow">
