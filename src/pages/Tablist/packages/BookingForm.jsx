@@ -1,6 +1,4 @@
 import { useContext, useEffect, useState } from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAxiosPublic from '../../../hook/useAxiosPublic';

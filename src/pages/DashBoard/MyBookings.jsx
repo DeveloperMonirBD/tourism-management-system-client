@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import StripeCheckout from 'react-stripe-checkout';
 import useAxiosSecure from '../../hook/useAxiosSecure';
 import { AuthContext } from '../../provider/AuthProvider';
+import { format } from 'date-fns';
 
 const MyBookings = () => {
     const { user } = useContext(AuthContext);
@@ -44,6 +45,8 @@ const MyBookings = () => {
             }
         });
     };
+
+    
 
     const handlePayment = async (token, amount, id) => {
         try {
@@ -99,7 +102,7 @@ const MyBookings = () => {
                             </td>
                             <td>{booking.packageName}</td>
                             <td>{booking.tourGuideName}</td>
-                            <td>{booking.tourDate}</td>
+                            <td>{format(new Date(booking.tourDate), 'P')}</td>
                             <td>{booking.price}</td>
                             <td>
                                 <span

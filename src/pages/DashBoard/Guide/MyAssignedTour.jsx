@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../hook/useAxiosSecure';
 import { AuthContext } from '../../../provider/AuthProvider';
+import { format } from 'date-fns';
 
 const MyAssignedTour = () => {
     const { user } = useContext(AuthContext);
@@ -104,9 +105,9 @@ const MyAssignedTour = () => {
                             <th>{index + 1}</th>
                             <td>{booking.packageName}</td>
                             <td>{booking.name}</td>
-                            <td>{booking.tourDate}</td>
+                            <td>{format(new Date(booking.tourDate), 'P')}</td>
                             <td>{booking.price}</td>
-                            <td className='flex gap-6'>
+                            <td className="flex gap-6">
                                 <span className="bg-green-100 px-3 p-1 rounded-xl text-red-300 font-semibold">{booking.status}</span>
                                 {booking.status === 'Pending' && (
                                     <div>
