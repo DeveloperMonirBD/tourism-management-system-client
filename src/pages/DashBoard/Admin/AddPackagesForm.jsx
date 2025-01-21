@@ -1,8 +1,8 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useContext, useState } from 'react';
+import Swal from 'sweetalert2'; // Import SweetAlert
 import useAxiosSecure from '../../../hook/useAxiosSecure';
 import { AuthContext } from '../../../provider/AuthProvider';
-import Swal from 'sweetalert2'; // Import SweetAlert
 
 const AddPackagesForm = () => {
     const { user } = useContext(AuthContext);
@@ -82,8 +82,8 @@ const AddPackagesForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="max-w-7xl mx-auto p-8 bg-white shadow-md rounded-md">
-            <h1 className="text-3xl font-bold text-center mb-6">Submit Tour Information</h1>
+        <form onSubmit={handleSubmit} className="w-full mx-auto p-8 bg-gray-100 shadow-md rounded-md mb-20">
+            <h1 className="text-3xl font-bold text-center mb-8 mt-6">Submit Tour Information</h1>
 
             <label className="block mb-2">Photo URL:</label>
             <input type="text" name="photo" value={formData.photo} onChange={handleFormChange} required className="w-full mb-4 p-2 border rounded" />

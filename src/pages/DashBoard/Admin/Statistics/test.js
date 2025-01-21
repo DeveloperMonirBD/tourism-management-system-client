@@ -1,17 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Select from 'react-select';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../hook/useAxiosSecure';
 
 const ManageUsers = () => {
     const axiosSecure = useAxiosSecure();
+    const [searchTerm] = useState('');
     const [selectedRole] = useState('');
-
-    const [searchTerm, setSearchTerm] = useState('');
-    const [filteredUsers, setFilteredUsers] = useState([]);
-
-    console.log(filteredUsers);
 
     // Fetch users
     const fetchUsers = async filters => {
@@ -24,24 +20,9 @@ const ManageUsers = () => {
         isLoading,
         refetch
     } = useQuery({
-        queryKey: ['users', { selectedRole }],
-        queryFn: () => fetchUsers({ role: selectedRole })
+        queryKey: ['users', { searchTerm, selectedRole }],
+        queryFn: () => fetchUsers({ searchTerm, role: selectedRole })
     });
-
-    useEffect(() => {
-        setFilteredUsers(users);
-    }, [users]);
-
-    // search input function
-    const handleSearchChange = e => {
-        const searchTerm = e.target.value;
-        setSearchTerm(searchTerm);
-        if (searchTerm === '') {
-            setFilteredUsers(users);
-        } else {
-            setFilteredUsers(users.filter(user => user.name.toLowerCase().includes(searchTerm.toLowerCase())));
-        }
-    };
 
     // Update user role
     const handleRoleChange = async (email, newRole) => {
@@ -73,17 +54,6 @@ const ManageUsers = () => {
         <div className="min-h-screen bg-gray-100 p-6">
             <h1 className="text-3xl font-bold my-6 text-center mb-10">Manage Users</h1>
 
-            {/* search input  */}
-            <div className="mb-8 flex items-center mb-6">
-                <input
-                    type="text"
-                    value={searchTerm}
-                    onChange={handleSearchChange}
-                    placeholder="Search by email"
-                    className="mt-1 block w-[300px] pl-3 pr-10 py-3 text-base border-neutral  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-                />
-            </div>
-
             <div className=" rounded p-4 overflow-x-auto shadow">
                 <table className="table-auto w-full text-left border-collapse mb-24 ">
                     <thead>
@@ -95,7 +65,7 @@ const ManageUsers = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {filteredUsers.map(user => (
+                        {users.map(user => (
                             <tr key={user._id}>
                                 <td className="border-b px-4 py-2">{user.name}</td>
                                 <td className="border-b px-4 py-2">{user.email}</td>
