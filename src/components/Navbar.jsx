@@ -84,16 +84,13 @@ const Navbar = () => {
                         </div>
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-64 p-3 shadow space-y-2">
-                        <li>{user?.displayName}</li>
-                        <li>{user?.email}</li>
-                        <li>
+                        <div className='ml-2 text-center space-y-2 mb-2 mt-2'>
+                        <li className='font-bold'>{user?.displayName}</li>
+                        <li className='font-bold'>{user?.email}</li>
+                        </div>
+                        <li className='mb-2'>
                             <Link to="dashboard/manageProfile" className="btn font-bold w-full badge">
                                 Dashboard
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/dashboard" className="btn font-bold w-full badge">
-                                Offer
                             </Link>
                         </li>
                         <li>

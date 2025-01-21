@@ -6,8 +6,8 @@ import useAxiosSecure from '../../../hook/useAxiosSecure';
 
 const ManageUsers = () => {
     const axiosSecure = useAxiosSecure();
-    const [searchTerm, setSearchTerm] = useState('');
-    const [selectedRole, setSelectedRole] = useState('');
+    const [searchTerm] = useState('');
+    const [selectedRole] = useState('');
 
     // Fetch users
     const fetchUsers = async filters => {
@@ -23,7 +23,7 @@ const ManageUsers = () => {
         queryKey: ['users', { searchTerm, selectedRole }],
         queryFn: () => fetchUsers({ searchTerm, role: selectedRole })
     });
-    
+
     // Update user role
     const handleRoleChange = async (email, newRole) => {
         try {
@@ -38,7 +38,7 @@ const ManageUsers = () => {
             });
 
             if (result.isConfirmed) {
-                await axiosSecure.put('/api/users/update-role', { email, role: newRole });
+                await axiosSecure.put(`/api/users/${email}`, { role: newRole });
                 refetch();
                 Swal.fire('Success!', 'User role has been updated.', 'success');
             }
@@ -48,27 +48,14 @@ const ManageUsers = () => {
         }
     };
 
-    const roles = [
-        { value: '', label: 'All Roles' },
-        { value: 'Tourist', label: 'Tourist' },
-        { value: 'Guide', label: 'Guide' },
-        { value: 'Admin', label: 'Admin' }
-    ];
-
     if (isLoading) return <p>Loading users...</p>;
 
     return (
         <div className="min-h-screen bg-gray-100 p-6">
-            <h1 className="text-2xl font-bold mb-4">Manage Users</h1>
-            <div className="mb-6 flex gap-4">
-                <input type="text" placeholder="Search by Name or Email" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} className="border rounded p-2 w-1/3" />
-                <Select options={roles} value={roles.find(role => role.value === selectedRole)} onChange={selected => setSelectedRole(selected?.value || '')} className="w-1/3" />
-                <button onClick={refetch} className="bg-blue-500 text-white px-4 py-2 rounded">
-                    Search
-                </button>
-            </div>
-            <div className="bg-white shadow rounded p-4 overflow-x-auto">
-                <table className="table-auto w-full text-left border-collapse">
+            <h1 className="text-2xl font-bold my-6 text-center mb-10">Manage Users</h1>
+
+            <div className=" rounded p-4 overflow-x-auto shadow-lg">
+                <table className="table-auto w-full text-left border-collapse mb-28 ">
                     <thead>
                         <tr>
                             <th className="border-b px-4 py-2">Name</th>
