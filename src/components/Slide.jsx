@@ -13,13 +13,6 @@ const Slide = ({ image, text }) => {
           <h1 className='text-3xl font-semibold text-white md:text-4xl lg:text-7xl mb-4 md:mb-6 px-10 lg:w-2/3 mx-auto'>
             {text}
           </h1>
-          <br />
-          <Link
-            to='/allBooks'
-            className='w-full btn btn-ghost md:w-52 px-5 text-sm font-medium text-white underline'
-          >
-            Let's Get Started ...
-          </Link>
         </div>
       </div>
     </div>

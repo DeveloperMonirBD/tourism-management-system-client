@@ -5,6 +5,7 @@ import useAxiosPublic from '../../../hook/useAxiosPublic';
 import useGuides from '../../../hook/useGuides';
 import { AuthContext } from '../../../provider/AuthProvider';
 import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 
 const BookingForm = ({ packageTitle, packagePrice }) => {
