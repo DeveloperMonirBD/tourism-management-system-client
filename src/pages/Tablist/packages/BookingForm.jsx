@@ -4,6 +4,8 @@ import Swal from 'sweetalert2';
 import useAxiosPublic from '../../../hook/useAxiosPublic';
 import useGuides from '../../../hook/useGuides';
 import { AuthContext } from '../../../provider/AuthProvider';
+import DatePicker from 'react-datepicker';
+
 
 const BookingForm = ({ packageTitle, packagePrice }) => {
     const axiosPublic = useAxiosPublic();
