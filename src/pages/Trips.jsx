@@ -3,11 +3,11 @@ import usePackages from '../hook/usePackages';
 const Trips = () => {
     const [packageData] = usePackages();
     return (
-        <div className="py-20">
+        <div className="py-20 dark:border-b dark:border-gray-700">
             <h2 className="text-4xl font-bold text-center">Our Packages </h2>
             <div className=" container mx-auto packages grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
                 {packageData.map(pkg => (
-                    <div key={pkg._id} className="px-4 pb-4 pt-2 border rounded-lg shadow-sm flex flex-col justify-between">
+                    <div key={pkg._id} className="px-4 pb-4 pt-2 border dark:border-gray-700 rounded-lg shadow-sm flex flex-col justify-between">
                         <div className="flex-1 space-y-3 mt-3">
                             <div className="h-[220px] bg-cover">
                                 <img src={pkg.photo} alt="" className="w-full h-full bg-cover rounded-md" />
@@ -25,7 +25,7 @@ const Trips = () => {
                             </div>
                         </div>
                         <div className="mt-6 flex-none pb-1">
-                            <button className="btn w-full text-lg font-bold" onClick={() => (window.location.href = `/package/${pkg._id}`)}>
+                            <button className="btn w-full text-lg font-bold dark:bg-gray-800 dark:text-white dark:border-gray-700 dark:hover:text-gray-800" onClick={() => (window.location.href = `/package/${pkg._id}`)}>
                                 View Details
                             </button>
                         </div>

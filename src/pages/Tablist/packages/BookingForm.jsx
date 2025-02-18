@@ -68,52 +68,52 @@ const BookingForm = ({ packageTitle, packagePrice }) => {
     };
 
     return (
-        <div className="my-20">
+        <div className="my-20 dark:bg-gray-800 dark:text-white">
             <h2 className="text-center font-bold text-4xl mb-10">Booking Now</h2>
-            <div className="container mx-auto p-6 md:p-16 bg-white shadow-md rounded-md">
+            <div className="container mx-auto p-6 md:p-16 bg-white shadow-md rounded-md dark:bg-neutral dark:text-white">
                 <img src={user?.photoURL || 'default-image-url.jpg'} alt="Tourist" className="rounded-md mb-4" />
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Name of the Package</span>
+                            <span className="label-text dark:text-white">Name of the Package</span>
                         </label>
-                        <input type="text" value={packageTitle} readOnly required className="input input-bordered" />
+                        <input type="text" value={packageTitle} readOnly required className="input input-bordered dark:bg-gray-800 dark:text-white" />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Tourist Name</span>
+                            <span className="label-text dark:text-white">Tourist Name</span>
                         </label>
-                        <input type="text" value={user?.displayName || ''} readOnly className="input input-bordered" />
+                        <input type="text" value={user?.displayName || ''} readOnly className="input input-bordered dark:bg-gray-800 dark:text-white" />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Tourist Email</span>
+                            <span className="label-text dark:text-white">Tourist Email</span>
                         </label>
-                        <input type="email" value={user?.email || ''} readOnly className="input input-bordered" />
+                        <input type="email" value={user?.email || ''} readOnly className="input input-bordered dark:bg-gray-800 dark:text-white" />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Tourist Image URL</span>
+                            <span className="label-text dark:text-white">Tourist Image URL</span>
                         </label>
-                        <input type="text" value={user?.photoURL || ''} readOnly className="input input-bordered" />
+                        <input type="text" value={user?.photoURL || ''} readOnly className="input input-bordered dark:bg-gray-800 dark:text-white" />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Price</span>
+                            <span className="label-text dark:text-white">Price</span>
                         </label>
-                        <input type="number" value={packagePrice} readOnly required className="input input-bordered" />
+                        <input type="number" value={packagePrice} readOnly required className="input input-bordered dark:bg-gray-800 dark:text-white" />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Tour Date</span>
+                            <span className="label-text dark:text-white">Tour Date</span>
                         </label>
-                        <DatePicker selected={date} onChange={date => setDate(date)} required className="input input-bordered w-full" />
+                        <DatePicker selected={date} onChange={date => setDate(date)} required className="input input-bordered w-full dark:bg-gray-800 dark:text-white" />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Tour Guide Name</span>
+                            <span className="label-text dark:text-white">Tour Guide Name</span>
                         </label>
-                        <select value={guide} onChange={e => setGuide(e.target.value)} required className="select select-bordered w-full">
+                        <select value={guide} onChange={e => setGuide(e.target.value)} required className="select select-bordered w-full dark:bg-gray-800 dark:text-white">
                             {guides.map(guide => (
                                 <option key={guide.id} value={guide.name}>
                                     {guide.name}
@@ -122,7 +122,7 @@ const BookingForm = ({ packageTitle, packagePrice }) => {
                         </select>
                     </div>
                     <div className="form-control mt-4">
-                        <button className="btn bg-brandPrimary hover:text-brandPrimary text-white transition text-lg" type="submit">
+                        <button className="btn bg-brandPrimary hover:text-brandPrimary text-white transition text-lg dark:bg-gray-800 dark:text-white" type="submit">
                             Book Now
                         </button>
                     </div>
