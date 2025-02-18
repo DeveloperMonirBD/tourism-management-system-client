@@ -7,7 +7,7 @@ const TourTravelGuide = () => {
     const [tabIndex, setTabIndex] = useState(0);
 
     return (
-        <div className="my-20 container mx-auto">
+        <div className="my-20 container mx-auto md:px-3">
             <div className="text-center">
                 <Tabs defaultIndex={tabIndex} onSelect={index => setTabIndex(index)}>
                     <TabList>

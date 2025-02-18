@@ -1,26 +1,52 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import userIcon from '../assets/user.png';
 import { AuthContext } from '../provider/AuthProvider';
+import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [mode, setMode] = useState('light');
+
+    // Load theme from local storage on mount
+    useEffect(() => {
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme) {
+            setMode(storedTheme);
+            document.documentElement.classList.add(storedTheme);
+        }
+    }, []);
+
+    // Toggle Mode Function
+    const toggleMode = () => {
+        if (mode === 'light') {
+            setMode('dark');
+            localStorage.setItem('theme', 'dark');
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+        } else {
+            setMode('light');
+            localStorage.setItem('theme', 'light');
+            document.documentElement.classList.add('light');
+            document.documentElement.classList.remove('dark');
+        }
+    };
 
     const links = (
         <>
             <li className="hover:text-brandPrimary ">
-                <NavLink to="/" className="">
+                <NavLink to="/" className="dark:text-white">
                     Home
                 </NavLink>
             </li>
-            <li className="hover:text-neutral">
+            <li className="hover:text-neutral dark:text-white">
                 <NavLink to="/community">Community</NavLink>
             </li>
-            <li className="hover:text-neutral">
+            <li className="hover:text-neutral dark:text-white">
                 <NavLink to="/about-us">About Us</NavLink>
             </li>
-            <li className="hover:text-neutral">
+            <li className="hover:text-neutral dark:text-white">
                 <NavLink to="/trips">Trips</NavLink>
             </li>
         </>
@@ -28,15 +54,15 @@ const Navbar = () => {
 
     return (
         <div className="navbar container mx-auto pl-3 pr-6 py-3">
-            <div className="navbar-start">
+            <div className="navbar-start ">
                 {/* mobile dropdown  */}
-                <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost text-neutral lg:hidden">
+                <div className="dropdown ">
+                    <div tabIndex={0} role="button" className="btn btn-ghost text-neutral lg:hidden dark:bg-gray-800 dark:text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                         </svg>
                     </div>
-                    <ul tabIndex={0} className="menu menu-md dropdown-content rounded-box z-[1] mt-3 w-52 p-3 shadow bg-gray-100 text-neutral font-semibold gap-2 ">
+                    <ul tabIndex={0} className="menu menu-md dropdown-content rounded-box z-[1] mt-3 w-52 p-3 shadow bg-gray-100 text-neutral font-semibold gap-2 dark:bg-gray-800 dark:text-white">
                         {links}
                         {user && user?.email ? (
                             <button onClick={logOut} className="btn bg-neutral text-brandLight hover:text-brandPrimary font-bold">
@@ -55,7 +81,9 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                <Link to="/" className="text-2xl font-extrabold text-neutral flex items-center gap-2 transform transition-all hover:scale-105 cursor-pointer duration-300">
+                <Link
+                    to="/"
+                    className="text-2xl font-extrabold text-neutral flex items-center gap-2 transform transition-all hover:scale-105 cursor-pointer duration-300 dark:bg-gray-800 dark:text-white">
                     <img className="w-14" src={logo} alt="" />
                     <h2>TMS</h2>
                 </Link>
@@ -84,11 +112,11 @@ const Navbar = () => {
                         </div>
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-64 p-3 shadow space-y-2">
-                        <div className='ml-2 text-center space-y-2 mb-2 mt-2'>
-                        <li className='font-bold'>{user?.displayName}</li>
-                        <li className='font-bold'>{user?.email}</li>
+                        <div className="ml-2 text-center space-y-2 mb-2 mt-2">
+                            <li className="font-bold">{user?.displayName}</li>
+                            <li className="font-bold">{user?.email}</li>
                         </div>
-                        <li className='mb-2'>
+                        <li className="mb-2">
                             <Link to="dashboard/manageProfile" className="btn font-bold w-full badge">
                                 Dashboard
                             </Link>
@@ -110,6 +138,23 @@ const Navbar = () => {
                             )}
                         </li>
                     </ul>
+                </div>
+
+                {/* DarkMode Light Mode  */}
+                <div>
+                    {mode === 'light' ? (
+                        <button onClick={toggleMode}>
+                            <span className="text-3xl text-yellow-500">
+                                <IoSunnyOutline />
+                            </span>
+                        </button>
+                    ) : (
+                        <button onClick={toggleMode}>
+                            <span className="text-3xl text-gray-500">
+                                <IoMoonOutline />
+                            </span>
+                        </button>
+                    )}
                 </div>
             </div>
         </div>

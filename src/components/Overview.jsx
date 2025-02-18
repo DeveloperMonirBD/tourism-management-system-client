@@ -7,7 +7,7 @@ import { fadeIn } from '../variants';
 
 const Overview = () => {
     return (
-        <div className="my-20  container mx-auto">
+        <div className="my-20  container mx-auto md:px-3">
             <div className=" text-center flex flex-col justify-center items-center">
                 <h2 className="text-4xl font-semibold mb-8">OverView</h2>
 

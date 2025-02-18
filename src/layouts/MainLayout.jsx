@@ -7,14 +7,14 @@ const MainLayout = () => {
     return (
         <div className="font-poppins">
             <Toaster position="top-right" reverseOrder={false} />
-            <header className="sticky top-0  bg-base-200 shadow-lg z-10">
+            <header className="sticky top-0  bg-base-200 shadow-lg dark:bg-gray-800 dark:text-white z-10">
                 {/* Navbar */}
                 <Navbar />
             </header>
 
             <main className="bg-neutralSilver">
                 {/* Dynamic Section  */}
-                <div className="min-h-[calc(100vh-232px)] px-3 pb-12">
+                <div className="min-h-[calc(100vh-232px)] pb-12">
                     <Outlet />
                 </div>
             </main>

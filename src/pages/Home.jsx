@@ -7,7 +7,7 @@ import TourTravelGuide from './Tablist/packages/TourTravelGuide';
 
 const Home = () => {
     return (
-        <div>
+        <div className="dark:bg-gray-800 dark:text-white">
             <Carousel />
             <Overview />
             <TourTravelGuide />
