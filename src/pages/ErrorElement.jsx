@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom';
 import errorImg from '../../src/assets/error.webp';
 
 const ErrorElement = () => {
@@ -8,6 +9,11 @@ const ErrorElement = () => {
                 <img src={errorImg} alt="" />
             </div>
             <h2 className="text-xl md:text-2xl lg:text-4xl font-extrabold">No Information Available</h2>
+            <div>
+                <Link className="btn btn-outline text-base" to="/">
+                    Home
+                </Link>
+            </div>
         </div>
     );
 };
