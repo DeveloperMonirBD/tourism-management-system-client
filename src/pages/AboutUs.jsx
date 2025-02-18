@@ -22,7 +22,7 @@ const AboutUs = () => {
     }, [axiosPublic]);
 
     return (
-        <div className="max-w-[1200px]  mx-auto bg-white pt-12 px-3 pb-12 md:p-20 rounded-lg shadow-sm w-full border mb-12">
+        <div className="max-w-[1200px]  mx-auto bg-white pt-12 px-3 pb-12 md:p-20 rounded-lg shadow-sm w-full border dark:border-gray-700 mb-12 dark:bg-gray-800 dark:text-white">
             <div className="text-center mb-6">
                 <h2 className="text-4xl font-bold mb-4">Md. Monirul Islam</h2>
                 <p className="mb-4">Email: mrmonir0558@gmail.com | Phone: (+88) 01745286828</p>
@@ -33,7 +33,7 @@ const AboutUs = () => {
                         <FaGithub /> <span className="text-blue-500 underline">Github</span>
                     </div>
                 </Link>
-                
+
                 <Link to="https://www.linkedin.com/in/monirdeveloper" target="_blank">
                     <div className="flex items-center gap-2">
                         <FaLinkedin /> <span className="text-blue-500 underline">Linkedin</span>

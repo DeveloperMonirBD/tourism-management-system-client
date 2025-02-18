@@ -44,11 +44,11 @@ const Community = () => {
         }
     };
     return (
-        <div className="container mx-auto py-20">
+        <div className="container mx-auto px-3 py-20 dark:bg-gray-800 dark:text-white dark:border-b dark:border-gray-700">
             <h2 className="text-4xl font-bold text-center mb-12">All Tourist Stories</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {stories.map(story => (
-                    <div key={story._id} className="p-4 border rounded-md shadow-sm">
+                    <div key={story._id} className="p-4 border dark:border-gray-700 rounded-md shadow-sm">
                         <div className="flex gap-2 items-center ">
                             <img src={story.image} className="w-14 h-14 rounded-full" alt="story.displayName" />
                             <p className="font-bold">{story.name}</p>
@@ -62,7 +62,7 @@ const Community = () => {
                             </div>
 
                             <div className="flex justify-between items-center mt-6">
-                                <button className="btn" onClick={() => handleShare(story._id)}>
+                                <button className="btn dark:bg-gray-800 dark:text-white dark:border-gray-700 dark:hover:text-gray-800" onClick={() => handleShare(story._id)}>
                                     <FacebookIcon size={32} round />
                                     Share on Facebook
                                 </button>
