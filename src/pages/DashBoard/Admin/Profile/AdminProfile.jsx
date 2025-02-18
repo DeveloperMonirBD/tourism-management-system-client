@@ -16,7 +16,6 @@ const AdminProfile = () => {
     const [manageProfile] = useManageProfile();
     return (
         <>
-
             {/* admin statistic component */}
             <AdminStatistics />
 
@@ -25,7 +24,7 @@ const AdminProfile = () => {
                 initial="hidden"
                 whileInView={'show'}
                 viewport={{ once: false, amount: 0.6 }}
-                className="flex flex-col w-full mx-auto justify-center items-center text-center bg-base-200 x-10 py-14 rounded-2xl shadow-sm border">
+                className="flex flex-col w-full mx-auto justify-center items-center text-center bg-base-200 x-10 py-14 rounded-2xl shadow-sm border dark:bg-neutral dark:text-white">
                 <div>
                     {user && user?.email ? (
                         <div className="space-y-3">

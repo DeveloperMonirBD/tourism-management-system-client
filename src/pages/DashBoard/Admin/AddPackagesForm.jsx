@@ -82,33 +82,53 @@ const AddPackagesForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="w-full mx-auto p-8 bg-gray-100 shadow-md rounded-md mb-20">
-            <h1 className="text-3xl font-bold text-center mb-8 mt-6">Submit Tour Information</h1>
+        <form onSubmit={handleSubmit} className="w-full mx-auto p-8 bg-gray-100 shadow-md rounded-md mb-20 dark:bg-neutral dark:text-white">
+            <h1 className="text-3xl font-bold text-center mb-8 mt-6 ">Submit Tour Information</h1>
 
             <label className="block mb-2">Photo URL:</label>
-            <input type="text" name="photo" value={formData.photo} onChange={handleFormChange} required className="w-full mb-4 p-2 border rounded" />
+            <input type="text" name="photo" value={formData.photo} onChange={handleFormChange} required className="w-full mb-4 p-2 border rounded dark:bg-neutral dark:text-white" />
 
             <label className="block mb-2">Tour Type:</label>
-            <input type="text" name="tour_type" value={formData.tour_type} onChange={handleFormChange} required className="w-full mb-4 p-2 border rounded" />
+            <input type="text" name="tour_type" value={formData.tour_type} onChange={handleFormChange} required className="w-full mb-4 p-2 border rounded dark:bg-neutral dark:text-white" />
 
             <label className="block mb-2">Trip Title:</label>
-            <input type="text" name="trip_title" value={formData.trip_title} onChange={handleFormChange} required className="w-full mb-4 p-2 border rounded" />
+            <input type="text" name="trip_title" value={formData.trip_title} onChange={handleFormChange} required className="w-full mb-4 p-2 border rounded dark:bg-neutral dark:text-white" />
 
             <label className="block mb-2">Price:</label>
-            <input type="number" name="price" value={formData.price} onChange={handleFormChange} required className="w-full mb-4 p-2 border rounded" />
+            <input type="number" name="price" value={formData.price} onChange={handleFormChange} required className="w-full mb-4 p-2 border rounded dark:bg-neutral dark:text-white" />
 
             <label className="block mb-2">Gallery URLs (comma-separated):</label>
-            <input type="text" name="gallery" value={formData.gallery} onChange={handleFormChange} required className="w-full mb-4 p-2 border rounded" />
+            <input type="text" name="gallery" value={formData.gallery} onChange={handleFormChange} required className="w-full mb-4 p-2 border rounded dark:bg-neutral dark:text-white" />
 
             <label className="block mb-2">Description:</label>
-            <textarea name="description" value={formData.description} onChange={handleFormChange} required className="w-full mb-4 p-2 border rounded" />
+            <textarea name="description" value={formData.description} onChange={handleFormChange} required className="w-full mb-4 p-2 border rounded dark:bg-neutral dark:text-white" />
 
             <label className="block mb-2">Tour Plan:</label>
             {formData.tour_plan.map((plan, index) => (
                 <div key={index} className="mb-4">
-                    <input type="text" name="day" value={plan.day} onChange={e => handleTourPlanChange(e, index)} placeholder={`Day ${index + 1}`} className="w-full mb-2 p-2 border rounded" />
-                    <input type="text" name="title" value={plan.title} onChange={e => handleTourPlanChange(e, index)} placeholder="Title" className="w-full mb-2 p-2 border rounded" />
-                    <textarea name="description" value={plan.description} onChange={e => handleTourPlanChange(e, index)} placeholder="Description" className="w-full mb-2 p-2 border rounded" />
+                    <input
+                        type="text"
+                        name="day"
+                        value={plan.day}
+                        onChange={e => handleTourPlanChange(e, index)}
+                        placeholder={`Day ${index + 1}`}
+                        className="w-full mb-2 p-2 border rounded dark:bg-neutral dark:text-white"
+                    />
+                    <input
+                        type="text"
+                        name="title"
+                        value={plan.title}
+                        onChange={e => handleTourPlanChange(e, index)}
+                        placeholder="Title"
+                        className="w-full mb-2 p-2 border rounded dark:bg-neutral dark:text-white"
+                    />
+                    <textarea
+                        name="description"
+                        value={plan.description}
+                        onChange={e => handleTourPlanChange(e, index)}
+                        placeholder="Description"
+                        className="w-full mb-2 p-2 border rounded dark:bg-neutral dark:text-white"
+                    />
                 </div>
             ))}
             <button type="button" onClick={addMore} className="py-2 px-4 bg-green-500 text-white rounded mb-4">

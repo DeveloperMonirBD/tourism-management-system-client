@@ -59,28 +59,40 @@ const AddStories = () => {
     };
 
     return (
-        <div className="mx-auto p-12 bg-white shadow-md rounded-md">
-            <h1 className="text-3xl font-semibold text-center mb-8 text-brandPrimary">Add Stories</h1>
+        <div className="mx-auto p-12 bg-white shadow-md rounded-md dark:bg-gray-800 dark:text-white">
+            <h1 className="text-3xl font-semibold text-center mb-8 text-brandPrimary dark:text-white">Add Stories</h1>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text text-base">Title</span>
                     </label>
-                    <input type="text" value={title} onChange={e => setTitle(e.target.value)} placeholder="Enter story title" required className="input input-bordered" />
+                    <input
+                        type="text"
+                        value={title}
+                        onChange={e => setTitle(e.target.value)}
+                        placeholder="Enter story title"
+                        required
+                        className="input input-bordered dark:bg-neutral dark:text-white"
+                    />
                 </div>
 
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text text-base">Text</span>
                     </label>
-                    <textarea value={text} onChange={e => setText(e.target.value)} placeholder="Write your story description here" required className="textarea textarea-bordered"></textarea>
+                    <textarea
+                        value={text}
+                        onChange={e => setText(e.target.value)}
+                        placeholder="Write your story description here"
+                        required
+                        className="textarea textarea-bordered dark:bg-neutral dark:text-white"></textarea>
                 </div>
 
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text text-base">Images</span>
                     </label>
-                    <input type="file" onChange={handleAddImages} accept="image/*" multiple className="file-input file-input-bordered bg-bra" />
+                    <input type="file" onChange={handleAddImages} accept="image/*" multiple className="file-input file-input-bordered bg-bra dark:bg-gray-800 dark:text-white" />
                 </div>
 
                 <div className="form-control">

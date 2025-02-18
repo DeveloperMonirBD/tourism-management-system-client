@@ -108,10 +108,10 @@ const MyAssignedTour = () => {
                             <td>{format(new Date(booking.tourDate), 'P')}</td>
                             <td>{booking.price}</td>
                             <td className="flex gap-6">
-                                <span className="bg-green-100 px-3 p-1 rounded-xl text-red-300 font-semibold">{booking.status}</span>
+                                <span className="bg-green-100 dark:bg-gray-700 p-3 rounded-xl text-red-300 font-semibold">{booking.status}</span>
                                 {booking.status === 'Pending' && (
                                     <div>
-                                        <button className="btn btn-sm btn-success ml-2" disabled>
+                                        <button className="btn btn-sm btn-success ml-2 dark:text-white" disabled>
                                             Accept
                                         </button>
                                         <button className="btn btn-sm btn-danger ml-2" onClick={() => handleReject(booking._id)}>

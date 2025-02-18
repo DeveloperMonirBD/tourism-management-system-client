@@ -14,15 +14,20 @@ const MyProfile = () => {
     const [manageProfile] = useManageProfile();
     return (
         <>
-            <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="text-brandPrimary text-3xl font-semibold text-center my-12">
-                <span className="text-neutral">"Welcome To</span> My Profile"
+            <motion.div
+                variants={fadeIn('up', 0.2)}
+                initial="hidden"
+                whileInView={'show'}
+                viewport={{ once: false, amount: 0.7 }}
+                className="text-brandPrimary text-3xl font-semibold text-center my-12  dark:text-white pb-3">
+                <span className="text-neutral dark:text-gray-500">"Welcome To</span> My Profile"
             </motion.div>
             <motion.div
                 variants={fadeIn('left', 0.3)}
                 initial="hidden"
                 whileInView={'show'}
                 viewport={{ once: false, amount: 0.6 }}
-                className="flex flex-col w-full mx-auto justify-center items-center text-center bg-base-200 x-10 py-14 rounded-2xl shadow-sm border">
+                className="flex flex-col w-full mx-auto justify-center items-center text-center bg-base-200 x-10 py-14 rounded-2xl shadow-sm border dark:bg-gray-800 dark:text-white">
                 <div>
                     {user && user?.email ? (
                         <div className="space-y-3">
@@ -37,7 +42,7 @@ const MyProfile = () => {
                     )}
                     <p className="text-lg mt-3">
                         <span className="font-semibold">Role: </span>
-                        <span className='text-blue-600 font-semibold'>{manageProfile.role}</span>
+                        <span className="text-blue-600 font-semibold">{manageProfile.role}</span>
                     </p>
                 </div>
                 <div className="space-x-4 mt-4">

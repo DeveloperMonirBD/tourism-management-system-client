@@ -80,9 +80,9 @@ const ManageUsers = () => {
     if (isLoading) return <p>Loading users...</p>;
 
     return (
-        <div className="min-h-screen bg-gray-100 p-6">
+        <div className="min-h-screen bg-gray-100 p-6 dark:bg-neutral dark:text-white">
             <h1 className="text-3xl font-bold my-6 text-center mb-10">Manage Users</h1>
-            <div className='md:flex justify-between'>
+            <div className="md:flex justify-between">
                 {/* search input  */}
                 <div className="mb-8 flex items-center gap-6">
                     <input
@@ -90,7 +90,7 @@ const ManageUsers = () => {
                         value={searchTerm}
                         onChange={handleSearchChange}
                         placeholder="Search by email"
-                        className="mt-1 block w-[300px] pl-3 pr-10 py-3 text-base border  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                        className="mt-1 block w-[300px] pl-3 pr-10 py-3 text-base border  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md dark:bg-neutral dark:text-white"
                     />
                 </div>
 
@@ -100,7 +100,7 @@ const ManageUsers = () => {
                         id="userType"
                         name="userType"
                         onChange={handleFilterChange}
-                        className="mt-2 block w-full pl-3 pr-10 py-3 text-base border-brandPrimary focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-md rounded-lg ">
+                        className="dark:ml-2 mt-2 block w-full pl-3 pr-10 py-3 text-base border-brandPrimary focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-md rounded-lg dark:bg-gray-800 dark:text-white dark:border dark:border-gray-400 ">
                         <option value="">All User Types</option>
                         <option value="Tourist">Tourist</option>
                         <option value="Guide">Guide</option>
@@ -124,7 +124,7 @@ const ManageUsers = () => {
                                 <td className="border-b px-4 py-2">{user.name}</td>
                                 <td className="border-b px-4 py-2">{user.email}</td>
                                 <td className="border-b px-4 py-2">{user.role}</td>
-                                <td className="border-b px-4 py-2">
+                                <td className="border-b px-4 py-2 dark:text-neutral">
                                     {user.role !== 'Admin' && (
                                         <Select
                                             options={[

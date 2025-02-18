@@ -12,7 +12,9 @@ const DashBoard = () => {
     const userRole = manageProfile.role;
 
     return (
-        <div className="gap-20 mr-10">
+        <div className='dark:bg-neutral' >
+
+        <div className="gap-20 mr-10 h-screen">
             {/* dashBoard side bar  */}
             <div className="w-full md:w-72 min-h-screen bg-gray-100 p-4 md:fixed dark:bg-gray-800 dark:text-white">
                 <div className="text-center mt-4">
@@ -162,9 +164,10 @@ const DashBoard = () => {
             </div>
 
             {/* dashboard content  */}
-            <div className="flex-1 pt-14 md:ml-80 md:mt-0">
+            <div className="flex-1 pt-14 md:ml-80 md:mt-0 dark:bg-gray-800 dark:text-gray-100 px-3">
                 <Outlet />
             </div>
+        </div>
         </div>
     );
 };

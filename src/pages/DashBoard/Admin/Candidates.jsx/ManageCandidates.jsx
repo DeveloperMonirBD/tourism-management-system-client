@@ -76,8 +76,8 @@ const ManageCandidates = () => {
     if (isLoading) return <p>Loading...</p>;
 
     return (
-        <div className="min-h-screen bg-gray-100 p-6">
-            <h1 className="text-3xl font-bold mb-4 text-center mt-6">Manage Candidates</h1>
+        <div className="min-h-screen bg-gray-100 p-6 dark:bg-neutral dark:text-white">
+            <h1 className="text-3xl font-bold mb-4 text-center mt-6 ">Manage Candidates</h1>
             <div className=" shadow rounded px-4 pt-10 pb-24 overflow-x-auto">
                 <table className="table-auto w-full text-left border-collapse">
                     <thead>

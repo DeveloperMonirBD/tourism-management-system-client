@@ -47,17 +47,17 @@ const JoinAsTourGuide = () => {
     };
 
     return (
-        <div className="container mx-auto p-12 bg-white shadow-md rounded-md mt-10">
+        <div className="container mx-auto p-12 bg-white shadow-md rounded-md mt-10 dark:bg-neutral dark:text-white">
             <h2 className="text-3xl font-semibold mb-6 text-center">Join as a Tour Guide</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
-                    <label className="block text-gray-700 mb-2" htmlFor="applicationTitle">
+                    <label className="block text-gray-700 mb-2 dark:text-white" htmlFor="applicationTitle">
                         Application Title:
                     </label>
                     <input
                         type="text"
                         id="applicationTitle"
-                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-neutral dark:text-white"
                         placeholder="Enter application title"
                         required
                         value={applicationTitle}
@@ -65,12 +65,12 @@ const JoinAsTourGuide = () => {
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 mb-2" htmlFor="whyGuide">
+                    <label className="block text-gray-700 mb-2 dark:text-white" htmlFor="whyGuide">
                         Why do you want to be a Tour Guide:
                     </label>
                     <textarea
                         id="whyGuide"
-                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-neutral dark:text-white"
                         rows="3"
                         placeholder="Write description"
                         required
@@ -78,13 +78,13 @@ const JoinAsTourGuide = () => {
                         onChange={e => setWhyGuide(e.target.value)}></textarea>
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 mb-2" htmlFor="cvLink">
+                    <label className="block text-gray-700 mb-2 dark:text-white" htmlFor="cvLink">
                         CV Link:
                     </label>
                     <input
                         type="url"
                         id="cvLink"
-                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-neutral dark:text-white"
                         placeholder="Enter cv link"
                         required
                         value={cvLink}
