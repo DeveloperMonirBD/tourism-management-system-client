@@ -97,9 +97,9 @@ const Navbar = () => {
             {/* user */}
             <div className="navbar-end md:flex gap-3">
                 {/* profile img  */}
-                <div className="dropdown dropdown-end">
+                <div className="dropdown dropdown-end ">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                        <div className="w-20 rounded-full shadow-md border">
+                        <div className="w-20 rounded-full shadow-md border ">
                             <div>
                                 {user && user?.email ? (
                                     <div className="flex items-center gap-2 group">
@@ -111,27 +111,27 @@ const Navbar = () => {
                             </div>
                         </div>
                     </div>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-64 p-3 shadow space-y-2">
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-64 p-3 shadow space-y-2 dark:bg-gray-800 dark:text-white">
                         <div className="ml-2 text-center space-y-2 mb-2 mt-2">
                             <li className="font-bold">{user?.displayName}</li>
                             <li className="font-bold">{user?.email}</li>
                         </div>
                         <li className="mb-2">
-                            <Link to="dashboard/manageProfile" className="btn font-bold w-full badge">
+                            <Link to="dashboard/manageProfile" className="btn font-bold w-full badge dark:bg-gray-800 dark:text-white dark:border-gray-700 dark:hover:text-gray-800">
                                 Dashboard
                             </Link>
                         </li>
                         <li>
                             {user && user?.email ? (
-                                <button onClick={logOut} className="btn font-bold">
+                                <button onClick={logOut} className="btn font-bold dark:bg-gray-800 dark:text-white dark:border-gray-700 dark:hover:text-gray-800">
                                     Log out
                                 </button>
                             ) : (
-                                <div className="flex flex-col items-center p-0 bg-white">
-                                    <Link to="/auth/login" className="btn font-bold w-full">
+                                <div className="flex flex-col items-center p-0 bg-white dark:bg-gray-800 dark:text-white ">
+                                    <Link to="/auth/login" className="btn font-bold w-full dark:bg-gray-800 dark:text-white dark:border-gray-700 dark:hover:text-gray-800">
                                         Login
                                     </Link>
-                                    <Link to="/auth/register" className="btn font-bold w-full">
+                                    <Link to="/auth/register" className="btn font-bold w-full dark:bg-gray-800 dark:text-white dark:border-gray-700 dark:hover:text-gray-800">
                                         Register
                                     </Link>
                                 </div>

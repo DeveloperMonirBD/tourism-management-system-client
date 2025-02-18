@@ -74,23 +74,29 @@ const Login = () => {
     };
 
     return (
-        <div className="md:min-h-[calc(100vh-200px)] flex justify-center items-center">
-            <div className="card bg-base-100 w-full max-w-2xl shrink-0 shadow-lg md:p-8 pt-6">
-                <h2 className="text-4xl font-semibold text-center text-brandPrimary pt-6">Login your account</h2>
-                <form onSubmit={handleSubmit} className="card-body">
+        <div className="md:min-h-[calc(100vh-200px)] flex justify-center items-center ">
+            <div className="card bg-base-100 w-full max-w-2xl shrink-0 shadow-lg md:p-8 pt-6 dark:bg-neutral dark:text-white">
+                <h2 className="text-4xl font-semibold text-center text-brandPrimary pt-6 dark:text-white">Login your account</h2>
+                <form onSubmit={handleSubmit} className="card-body ">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-base">Email</span>
+                            <span className="label-text text-base dark:text-white">Email</span>
                         </label>
-                        <input type="email" name="email" ref={emailRef} placeholder="Enter your email" className="input input-bordered bg-[#F3F3F3]" required />
+                        <input type="email" name="email" ref={emailRef} placeholder="Enter your email" className="input input-bordered bg-[#F3F3F3] dark:bg-gray-800 dark:text-white" required />
                     </div>
 
                     <div className="form-control relative">
                         <label className="label">
-                            <span className="label-text text-base">Password</span>
+                            <span className="label-text text-base dark:text-white">Password</span>
                         </label>
 
-                        <input type={showPassword ? 'text' : 'password'} name="password" placeholder="Enter your password" className="input input-bordered bg-[#F3F3F3]" required />
+                        <input
+                            type={showPassword ? 'text' : 'password'}
+                            name="password"
+                            placeholder="Enter your password"
+                            className="input input-bordered bg-[#F3F3F3] dark:bg-gray-800 dark:text-white"
+                            required
+                        />
                         <button type="button" onClick={() => setShowPassword(!showPassword)} className="btn btn-xs absolute right-3 text-lg top-12">
                             {showPassword ? <FaEye /> : <FaEyeSlash />}
                         </button>
@@ -98,17 +104,17 @@ const Login = () => {
                         {error.login && <label className="label text-red-600 text-sm">{error.login}</label>}
 
                         <label onClick={handleForgetPassword} className="label">
-                            <Link to="#" className="label-text-alt link link-hover text-base">
+                            <Link to="#" className="label-text-alt link link-hover text-base dark:text-white">
                                 Forgot password?
                             </Link>
                         </label>
                     </div>
                     <div className="form-control mt-4">
-                        <button className="btn text-white text-base btn-neutral">Login</button>
+                        <button className="btn text-white text-base btn-neutral dark:bg-gray-800 dark:text-white dark:border-gray-700 dark:hover:bg-gray-100 dark:hover:text-gray-800">Login</button>
                     </div>
                     <div className="divider">OR</div>
                     <div className="form-control flex justify-center gap-3">
-                        <button type="button" onClick={handleGoogleLogin} className="btn text-white text-base bg-brandPrimary ">
+                        <button type="button" onClick={handleGoogleLogin} className="btn text-white text-base bg-brandPrimary dark:bg-gray-800 dark:text-white dark:border-gray-700 dark:hover:text-gray-800">
                             <img className="w-6 mr-1 shadow-2xl" src={google} alt="" /> Google Login
                         </button>
                     </div>

@@ -14,7 +14,7 @@ const DashBoard = () => {
     return (
         <div className="gap-20 mr-10">
             {/* dashBoard side bar  */}
-            <div className="w-full md:w-72 min-h-screen bg-gray-100 p-4 md:fixed">
+            <div className="w-full md:w-72 min-h-screen bg-gray-100 p-4 md:fixed dark:bg-gray-800 dark:text-white">
                 <div className="text-center mt-4">
                     <h1 className="text-4xl font-bold">Tourism</h1>
                     <p className="text-2xl font-bold">Management system</p>
@@ -110,7 +110,7 @@ const DashBoard = () => {
                                 <li>
                                     <NavLink to="/dashboard/manageCandidates">
                                         <FaAddressCard />
-                                       Candidates
+                                        Candidates
                                     </NavLink>
                                 </li>
                             </ul>

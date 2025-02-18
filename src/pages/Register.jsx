@@ -120,40 +120,40 @@ const Register = () => {
 
     return (
         <div className="md:min-h-screen flex justify-center items-center mb-10">
-            <div className="card bg-base-100 w-full max-w-2xl shrink-0 shadow-lg md:p-8">
-                <h2 className="text-4xl text-brandPrimary font-semibold text-center pt-10">Register your account</h2>
+            <div className="card bg-base-100 w-full max-w-2xl shrink-0 shadow-lg md:p-8 dark:bg-neutral dark:text-white">
+                <h2 className="text-4xl text-brandPrimary font-semibold text-center pt-10 dark:text-white">Register your account</h2>
                 <form onSubmit={handleSubmit} className="card-body">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-base">Your Name</span>
+                            <span className="label-text text-base dark:text-white">Your Name</span>
                         </label>
-                        <input type="text" name="name" placeholder="Enter your name" className="input input-bordered bg-[#F3F3F3]" required />
+                        <input type="text" name="name" placeholder="Enter your name" className="input input-bordered bg-[#F3F3F3] dark:bg-gray-800 dark:text-white" required />
                     </div>
                     {error.name && <label className="label text-sm text-rose-500">{error.name}</label>}
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-base">Select image</span>
+                            <span className="label-text text-base  dark:text-white">Select image</span>
                         </label>
                         <input type="file" name="image" id="image" accept="image/*" required />
                     </div>
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-base">Email</span>
+                            <span className="label-text text-base dark:text-white">Email</span>
                         </label>
-                        <input type="email" name="email" placeholder="Enter your email" className="input input-bordered bg-[#F3F3F3]" required />
+                        <input type="email" name="email" placeholder="Enter your email" className="input input-bordered bg-[#F3F3F3] dark:bg-gray-800 dark:text-white" required />
                     </div>
 
                     <div className="form-control relative">
                         <label className="label">
-                            <span className="label-text text-base">Password</span>
+                            <span className="label-text text-base dark:text-white">Password</span>
                         </label>
                         <input
                             type={showPassword ? 'text' : 'password'}
                             name="password"
                             placeholder="Enter your password"
-                            className="input input-bordered bg-[#F3F3F3]"
+                            className="input input-bordered bg-[#F3F3F3] dark:bg-gray-800 dark:text-white"
                             required
                             value={password}
                             onChange={e => setPassword(e.target.value)}
@@ -165,13 +165,13 @@ const Register = () => {
 
                     <div className="form-control relative">
                         <label className="label">
-                            <span className="label-text text-base">Confirm Password</span>
+                            <span className="label-text text-base dark:text-white">Confirm Password</span>
                         </label>
                         <input
                             type={showConfirmPassword ? 'text' : 'password'}
                             name="confirmPassword"
                             placeholder="Confirm your password"
-                            className="input input-bordered bg-[#F3F3F3]"
+                            className="input input-bordered bg-[#F3F3F3] dark:bg-gray-800 dark:text-white"
                             required
                             value={confirmPassword}
                             onChange={e => setConfirmPassword(e.target.value)}
@@ -189,7 +189,9 @@ const Register = () => {
                     </div>
 
                     <div className="form-control mt-6">
-                        <button className="btn text-white text-base btn-neutral">Register</button>
+                        <button className="btn text-white text-base btn-neutral dark:bg-gray-800 dark:text-white dark:hover:bg-gray-100 dark:hover:text-gray-800 dark:hover dark:border-gray-700">
+                            Register
+                        </button>
                     </div>
 
                     {errorMessage && <p className="text-red-600 text-center mt-3">{errorMessage}</p>}
@@ -199,7 +201,7 @@ const Register = () => {
                     <div className="divider">OR</div>
 
                     <div className="form-control flex justify-center gap-3">
-                        <button type="button" onClick={handleGoogleLogin} className="btn text-base bg-brandPrimary text-white hover:text-gray-900">
+                        <button type="button" onClick={handleGoogleLogin} className="btn text-base bg-brandPrimary text-white hover:text-gray-900 dark:bg-gray-800 dark:text-white dark:border-gray-700">
                             <img className="w-6 mr-1 shadow-2xl" src={google} alt="" /> Google Sign Up
                         </button>
                     </div>
