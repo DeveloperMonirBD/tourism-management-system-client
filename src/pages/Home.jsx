@@ -1,3 +1,4 @@
+import About from '../components/About';
 import Carousel from '../components/Carousel';
 import Category from '../components/Category';
 import ContactSection from '../components/ContactSection';
@@ -14,6 +15,7 @@ const Home = () => {
             <TourTravelGuide />
             <WhyChooseUs />
             <Category />
+            <About />
             <TouristStory />
             <ContactSection />
         </div>
