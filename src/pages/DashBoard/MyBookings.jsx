@@ -113,7 +113,7 @@ const MyBookings = () => {
                                 </span>
                             </td>
                             {booking.status === 'Pending' && (
-                                <td className="flex items-center justify-center">
+                                <td className="flex items-center justify-center mt-4">
                                     <StripeCheckout
                                         token={token => handlePayment(token, booking.price * 100, booking._id)}
                                         stripeKey={import.meta.env.VITE_Payment_Gateway_API_KEY}
