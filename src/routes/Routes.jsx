@@ -27,6 +27,7 @@ import ManageUsers from '../pages/DashBoard/Admin/ManageUsers';
 import AdminStatistics from '../pages/DashBoard/Admin/Statistics/AdminStatistics';
 import AdminProfile from '../pages/DashBoard/Admin/Profile/AdminProfile';
 import ManageCandidates from '../pages/DashBoard/Admin/Candidates.jsx/ManageCandidates';
+import ContactSection from '../components/ContactSection';
 
 
 
@@ -51,6 +52,10 @@ const routes = createBrowserRouter([
             {
                 path: '/trips',
                 element: <Trips />
+            },
+            {
+                path: '/contactUs',
+                element: <ContactSection />
             },
             {
                 path: '/package/:id',

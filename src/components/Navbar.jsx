@@ -49,6 +49,9 @@ const Navbar = () => {
             <li className="hover:text-neutral dark:text-white">
                 <NavLink to="/trips">Trips</NavLink>
             </li>
+            <li className="hover:text-neutral dark:text-white">
+                <NavLink to="/contactUs">Contact Us</NavLink>
+            </li>
         </>
     );
 
