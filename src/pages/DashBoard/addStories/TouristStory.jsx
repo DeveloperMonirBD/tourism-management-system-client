@@ -44,7 +44,7 @@ const TouristStory = () => {
     return (
         <div className="container mx-auto md:px-3">
             <h2 className="text-4xl font-bold text-center mb-8">Tourist Stories</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 {stories.map(story => (
                     <div key={story._id} className="p-4 border dark:border-gray-700 rounded-md shadow-sm">
                         <div className="flex gap-2 items-center ">
@@ -55,7 +55,7 @@ const TouristStory = () => {
                         <div className="space-y-3 mt-3">
                             <h3 className="text-xl font-semibold">{story.title}</h3>
                             <p>{story.text}</p>
-                            <div className="h-[220px] lg:h-[350px] bg-cover">
+                            <div className="h-[220px] lg:h-[250px] bg-cover">
                                 <img src={story.photo_url} alt="" className="w-full h-full bg-cover" />
                             </div>
 
