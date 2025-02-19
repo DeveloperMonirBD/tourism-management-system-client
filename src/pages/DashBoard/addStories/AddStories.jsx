@@ -64,7 +64,7 @@ const AddStories = () => {
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text text-base">Title</span>
+                        <span className="label-text text-base dark:text-white">Title</span>
                     </label>
                     <input
                         type="text"
@@ -78,7 +78,7 @@ const AddStories = () => {
 
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text text-base">Text</span>
+                        <span className="label-text text-base dark:text-white">Text</span>
                     </label>
                     <textarea
                         value={text}
@@ -90,7 +90,7 @@ const AddStories = () => {
 
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text text-base">Images</span>
+                        <span className="label-text text-base dark:text-white">Images</span>
                     </label>
                     <input type="file" onChange={handleAddImages} accept="image/*" multiple className="file-input file-input-bordered bg-bra dark:bg-gray-800 dark:text-white" />
                 </div>
